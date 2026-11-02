@@ -1,3 +1,3 @@
 # Materiale di riferimento locale
 
-`How to Win at Chess.pdf` è stato aggiunto dall’utente. Analisi e riferimenti nel curriculum. Il file non viene copiato nella PWA: non spostarlo in `public/`. Nessuna immagine o pagina del PDF viene incorporata negli asset distribuiti.
+Il PDF originale è stato rimosso dai branch e dalla loro cronologia prima della pubblicazione. Non aggiungere documenti protetti da copyright alla repository o a `public/`. Analisi e riferimenti bibliografici restano nel curriculum.

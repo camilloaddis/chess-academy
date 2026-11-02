@@ -36,7 +36,7 @@ Il completamento richiede tutti i blocchi soddisfatti; una visita alla rotta Com
 
 ## Offline e aggiornamenti
 
-vite-plugin-pwa genera manifest e service worker Workbox. HTML, JavaScript, CSS, icone e contenuti didattici sono locali e precachati; nessun font o immagine dipende da CDN. I PDF di `source/` non sono asset pubblici. Il PDF aggiunto dall’utente è tracciato nel repository, ma non viene copiato in `dist/`. Il service worker richiede HTTPS o localhost ed è attivo nella build di produzione, non nel server di sviluppo. Il primo caricamento deve avvenire online e completare la registrazione. I processi Vite non sopravvivono al riavvio dell'ambiente.
+vite-plugin-pwa genera manifest e service worker Workbox. HTML, JavaScript, CSS, icone e contenuti didattici sono locali e precachati; nessun font o immagine dipende da CDN. I PDF di `source/` non sono asset pubblici. Il PDF originale è stato rimosso dai branch e dalla loro cronologia e non viene copiato in `dist/`. Il service worker richiede HTTPS o localhost ed è attivo nella build di produzione, non nel server di sviluppo. Il primo caricamento deve avvenire online e completare la registrazione. I processi Vite non sopravvivono al riavvio dell'ambiente.
 
 ## Verifiche
 

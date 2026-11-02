@@ -7,7 +7,17 @@ Il workflow verifica unit test, build, manifest, artefatti e test browser (anche
 1. In Settings → Pages scegliere **Source: GitHub Actions**.
 2. Consentire GitHub Actions e le azioni ufficiali usate dal workflow; consentire il deploy nell'ambiente `github-pages` dal branch `main` (approvare eventuali protection rules).
 3. URL previsto: https://camilloaddis.github.io/chess-academy/ . Non impostare un dominio personalizzato senza aggiornare base, manifest e test.
-4. La repository è privata: GitHub Pages su GitHub Free richiede una repository pubblica; mantenerla privata richiede un piano che supporti Pages per repository private. **Non renderla pubblica nello stato attuale:** il PDF originale è tracciato anche nella cronologia Git. Prima di cambiare visibilità occorre rimuovere il materiale protetto da tutta la cronologia oppure creare una nuova repository pubblica con soli file autorizzati. Questa PR non cambia visibilità e non riscrive la cronologia.
+4. GitHub Pages su GitHub Free richiede una repository pubblica. La pulizia del 2 novembre 2026 ha rimosso il PDF da tutti e tre i branch e dalla relativa cronologia, mantenendo la repository privata durante la verifica. **Prima di renderla pubblica, chiedere a GitHub Support la rimozione dei riferimenti interni alle PR #1 e #2 e delle viste/cache dei vecchi commit**, che conservano ancora la cronologia precedente. Il solo force push non li elimina. Solo dopo la conferma aprire Settings → General → Danger Zone → Change repository visibility → Public.
+5. Dopo il cambio di visibilità, attivare Pages come sopra e avviare il workflow “GitHub Pages” da Actions → Run workflow su `main`.
+
+## Pulizia della cronologia e copie locali
+
+Sono stati riscritti `main`, `chore/github-pages` e `feat/sprint-1-interactive-mvp`; non erano presenti tag. Il vecchio blob PDF è `47cbaf5c3a1e2d80ec55c639efa4348d86ded146`. Per la richiesta a GitHub Support indicare le PR #1 e #2 e questo blob; chiedere la rimozione dei riferimenti conservati e la garbage collection dei vecchi oggetti prima del cambio di visibilità. Eventuali copie, fork o download precedenti non vengono cancellati dalla riscrittura.
+
+Le vecchie copie locali contengono ancora il PDF nella cronologia: riclonare la repository in una nuova cartella, trasferendo solo eventuali modifiche locali necessarie, senza reinserire vecchi branch o commit. Non fare merge dalla vecchia cronologia.
+
+L'accesso Git consente la riscrittura dei branch; la connessione disponibile per questo intervento non espone le operazioni amministrative di visibilità e Pages. Queste impostazioni vanno completate dal proprietario su GitHub.
+
 
 ## URL e PWA
 
