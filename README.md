@@ -49,3 +49,7 @@ Su una macchina Linux senza librerie browser, installare i prerequisiti supporta
 - `source/`: directory riservata al materiale di studio locale. Il PDF fornito è tracciato nel repository e non viene copiato in `dist/`.
 
 I progressi restano nel browser usato: cancellare i dati del sito li elimina. Non sono presenti sincronizzazione, esportazione, AI, Stockfish, funzionalità social o unità successive. Le durate delle lezioni sono stime. La verifica su dispositivi fisici e l'installazione dal menu nativo del browser richiedono una prova dedicata; l'emulazione mobile non sostituisce questi controlli.
+
+## GitHub Pages
+
+Configurazione, verifiche e impostazioni manuali: [guida alla pubblicazione](docs/github-pages.md).
