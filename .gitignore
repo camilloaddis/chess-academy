@@ -6,3 +6,5 @@ test-results/
 source/*.pdf
 
 *.tsbuildinfo
+
+work/

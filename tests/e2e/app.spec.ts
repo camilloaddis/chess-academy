@@ -5,7 +5,7 @@ async function square(page: import("@playwright/test").Page, s: string) {
 test("lezione completa, errori, navigazione, IndexedDB e ripasso", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("./");
   await expect(
     page.getByRole("heading", { name: /Le grandi partite/ }),
   ).toBeVisible();
@@ -24,6 +24,17 @@ test("lezione completa, errori, navigazione, IndexedDB e ripasso", async ({
   await square(page, "d4");
   await expect(page.getByRole("button", { name: "Continua" })).toBeEnabled();
   await page.getByRole("button", { name: "Continua" }).click();
+  // Wait for the asynchronous IndexedDB transaction before refreshing.
+  await expect.poll(() => page.evaluate(async () => {
+    const request = indexedDB.open("chess-academy", 1);
+    const db = await new Promise<IDBDatabase>(resolve => {
+      request.onsuccess = () => resolve(request.result);
+    });
+    return new Promise<number>(resolve => {
+      const read = db.transaction("state").objectStore("state").get("progress");
+      read.onsuccess = () => { resolve(read.result?.positions.board); db.close(); };
+    });
+  })).toBe(3);
   await page.reload();
   await expect(
     page.getByRole("heading", { name: "Una coordinata, una casa" }),
@@ -63,7 +74,7 @@ test("layout 360–430 e desktop, PWA e offline reale", async ({
   page,
   context,
 }) => {
-  await page.goto("/");
+  await page.goto("./");
   for (const width of [360, 390, 430, 1280]) {
     await page.setViewportSize({ width, height: 900 });
     await expect(
@@ -106,7 +117,7 @@ test("tutta la prima unità si sblocca e si completa con attività reali", async
   page,
 }) => {
   const { lessons } = await import("../../src/content/unit");
-  await page.goto("/");
+  await page.goto("./");
   await page.getByRole("button", { name: /Inizia la prima lezione/ }).click();
   for (let li = 0; li < lessons.length; li++) {
     const lesson = lessons[li];
