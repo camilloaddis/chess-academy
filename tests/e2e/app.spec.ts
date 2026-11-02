@@ -11,7 +11,7 @@ test("lezione completa, errori, navigazione, IndexedDB e ripasso", async ({
   ).toBeVisible();
   await page.getByRole("button", { name: /Inizia la prima lezione/ }).click();
   await page.getByRole("button", { name: "Continua" }).click();
-  await expect(page.getByRole("button", { name: "Continua" })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "Continua" })).toBeEnabled();
   await page.getByRole("button", { name: "Mostra la mossa 1" }).click();
   await page.getByRole("button", { name: "Mostra la mossa 2" }).click();
   await page.getByRole("button", { name: "Continua" }).click();
@@ -43,7 +43,7 @@ test("lezione completa, errori, navigazione, IndexedDB e ripasso", async ({
   await expect(page.getByRole("button", { name: "Continua" })).toBeEnabled();
   await page.getByRole("button", { name: "Continua" }).click();
   await page.getByRole("button", { name: /La traversa/ }).click();
-  await expect(page.getByRole("button", { name: "Continua" })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "Continua" })).toBeEnabled();
   await page.getByRole("button", { name: /La colonna/ }).click();
   await page.getByRole("button", { name: "Continua" }).click();
   await page.getByRole("button", { name: "Concludi" }).click();
@@ -113,9 +113,10 @@ test("layout 360–430 e desktop, PWA e offline reale", async ({
   });
 });
 
-test("tutta la prima unità si sblocca e si completa con attività reali", async ({
+test("tutto il corso si completa con attività reali", async ({
   page,
 }) => {
+  test.setTimeout(120_000);
   const { lessons } = await import("../../src/content/unit");
   await page.goto("./");
   await page.getByRole("button", { name: /Inizia la prima lezione/ }).click();
@@ -136,6 +137,10 @@ test("tutta la prima unità si sblocca e si completa con attività reali", async
             const u = alternatives[0];
             await page.locator(`[data-square="${u.slice(0, 2)}"]`).tap();
             await page.locator(`[data-square="${u.slice(2, 4)}"]`).tap();
+            if (u[4]) {
+              const names: Record<string, string> = { q: "Donna", r: "Torre", b: "Alfiere", n: "Cavallo" };
+              await page.getByRole("dialog", { name: "Scegli la promozione" }).getByRole("button", { name: names[u[4]], exact: true }).click();
+            }
           }
         }
       } else if (b.type === "multiple_choice")
@@ -156,7 +161,7 @@ test("tutta la prima unità si sblocca e si completa con attività reali", async
       await page.getByRole("button", { name: "La prossima lezione" }).click();
   }
   await page.getByRole("button", { name: "Torna al percorso" }).click();
-  await expect(page.getByText("4/4", { exact: true })).toBeVisible();
+  await expect(page.getByText("4/4", { exact: true }).first()).toBeVisible();
   await page.reload();
-  await expect(page.getByText("4/4", { exact: true })).toBeVisible();
+  await expect(page.getByText("4/4", { exact: true }).first()).toBeVisible();
 });

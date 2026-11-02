@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { lessons } from "./content/unit";
+import { courseUnits } from "./content/course";
 import { LessonPlayer } from "./components/LessonPlayer";
 import {
   freshProgress,
@@ -64,12 +65,6 @@ export default function App() {
   const completed = lessons.filter(
     (l) => progress.completed[l.id] === l.version,
   ).length;
-  function unlocked(i: number) {
-    return (
-      i === 0 ||
-      progress.completed[lessons[i - 1].id] === lessons[i - 1].version
-    );
-  }
   function start(id: string, restart = false) {
     const l = lessons.find((l) => l.id === id);
     if (!l) return;
@@ -84,12 +79,9 @@ export default function App() {
   }
   const current =
     lessons.find((l) => l.id === progress.currentLesson) ?? lessons[0];
-  const next =
-    !lessonReady(progress, current) && unlocked(lessons.indexOf(current))
-      ? current
-      : (lessons.find(
-          (l, i) => unlocked(i) && progress.completed[l.id] !== l.version,
-        ) ?? current);
+  const next = !lessonReady(progress, current)
+    ? current
+    : (lessons.find((l) => progress.completed[l.id] !== l.version) ?? current);
   const active =
     "id" in route ? lessons.find((l) => l.id === route.id) : undefined;
   if (!loaded)
@@ -98,8 +90,7 @@ export default function App() {
         ♘ <span>Prepariamo la scacchiera…</span>
       </div>
     );
-  const lessonView =
-    route.page === "lesson" && active && unlocked(lessons.indexOf(active));
+  const lessonView = route.page === "lesson" && active;
   const errorBanner = storageError && (
     <div className="storage-warning" role="alert">
       {storageError}
@@ -117,31 +108,29 @@ export default function App() {
         />
       </>
     );
-  function pathList() {
+  function pathList(items = lessons) {
     return (
       <div className="path-list">
-        {lessons.map((l, i) => {
-          const complete = progress.completed[l.id] === l.version,
-            available = unlocked(i);
+        {items.map((l) => {
+          const complete = progress.completed[l.id] === l.version;
           return (
             <button
-              className={`lesson-card ${complete ? "finished" : ""} ${available ? "" : "locked"}`}
-              disabled={!available}
+              className={`lesson-card ${complete ? "finished" : ""}`}
               key={l.id}
-              onClick={() => start(l.id, complete)}
+              onClick={() => start(l.id)}
             >
               <span className="lesson-number">
-                {complete ? "✓" : available ? l.icon : "♜"}
+                {complete ? "✓" : l.icon}
               </span>
               <span className="lesson-info">
                 <span className="eyebrow">
-                  {String(i + 1).padStart(2, "0")} · {l.kind}
+                  {String(lessons.indexOf(l) + 1).padStart(2, "0")} · {l.kind}
                 </span>
                 <strong>{l.title}</strong>
                 <small>{l.subtitle}</small>
               </span>
               <span className="lesson-meta">
-                {l.minutes} min <b>{complete ? "↻" : available ? "→" : "·"}</b>
+                {l.minutes} min <b>{complete ? "✓" : "→"}</b>
               </span>
             </button>
           );
@@ -204,20 +193,20 @@ export default function App() {
               </div>
               <section className="hero-card">
                 <div className="hero-copy">
-                  <div className="pill">✦ UNITÀ 01 · LE FONDAMENTA</div>
+                  <div className="pill">✦ IMPARA AL TUO RITMO</div>
                   <h2>
                     {completed === lessons.length
-                      ? "Le basi sono tue."
+                      ? "Il percorso è tuo."
                       : "La prossima mossa\nè la tua."}
                   </h2>
                   <p>
                     {completed === lessons.length
                       ? "Torna sulla scacchiera e rendi le tue idee ancora più solide."
-                      : "Impara a conoscere i pezzi, trova la tua strada e scopri il primo scacco matto."}
+                      : "Dalle prime mosse ai finali: scegli cosa imparare, senza prerequisiti."}
                   </p>
                   <button
                     className="primary light"
-                    onClick={() => start(next.id, lessonReady(progress, next))}
+                    onClick={() => start(next.id)}
                   >
                     {Object.keys(progress.results).length
                       ? "Continua il percorso"
@@ -253,14 +242,14 @@ export default function App() {
                       {Math.round((completed / lessons.length) * 100)}
                       <small>%</small>
                     </strong>
-                    <p>Fondamenta costruite</p>
+                    <p>Percorso completato</p>
                   </div>
                 </div>
               </div>
               <div className="section-title">
                 <div>
                   <div className="eyebrow">IL TUO PERCORSO</div>
-                  <h2>Si parte dalle basi</h2>
+                  <h2>Scegli la tua prossima lezione</h2>
                 </div>
                 <button
                   className="text-btn"
@@ -269,7 +258,7 @@ export default function App() {
                   Vedi tutto <span>→</span>
                 </button>
               </div>
-              {pathList()}
+              {pathList(lessons.slice(0, 4))}
               <section className="review-banner">
                 <span>↻</span>
                 <div>
@@ -296,21 +285,29 @@ export default function App() {
                 <h1>
                   Il tuo percorso<span>.</span>
                 </h1>
-                <p>Quattro piccole lezioni. Una base su cui costruire.</p>
+                <p>{lessons.length} lezioni da esplorare nell’ordine che preferisci. Tutte accessibili da subito.</p>
               </div>
-              <section className="unit-heading">
-                <span>01</span>
-                <div>
-                  <h2>Le fondamenta</h2>
-                  <p>Dalla prima mossa al primo matto · 16 minuti</p>
-                </div>
-                <b>{completed}/4</b>
-              </section>
-              {pathList()}
+              {courseUnits.map((unit, index) => {
+                const items = lessons.filter(lesson => unit.ids.includes(lesson.id));
+                const done = items.filter(lesson => progress.completed[lesson.id] === lesson.version).length;
+                return (
+                  <section key={unit.title} aria-label={unit.title}>
+                    <div className="unit-heading">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <div>
+                        <h2>{unit.title}</h2>
+                        <p>{unit.subtitle} · {items.reduce((n, l) => n + l.minutes, 0)} minuti</p>
+                      </div>
+                      <b>{done}/{items.length}</b>
+                    </div>
+                    {pathList(items)}
+                  </section>
+                );
+              })}
               <div className="source-note">
                 Concetti rielaborati dall’introduzione e dal capitolo 1 di How
                 to Win at Chess. Esercizi originali e diagrammi verificati sono
-                indicati nelle lezioni.
+                indicati nelle lezioni. Le nuove unità contengono testi ed esercizi originali.
               </div>
             </>
           )}

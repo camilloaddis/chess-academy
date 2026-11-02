@@ -1,3 +1,4 @@
+import { additionalLessons } from "./course";
 import type { Lesson, MoveActivity } from "../lessons/types";
 const activity = (
   fen: string,
@@ -327,5 +328,6 @@ export const lessons: Lesson[] = [
       },
     ],
   },
+  ...additionalLessons,
 ];
-export const contentVersion = 1;
+export const contentVersion = 2;
