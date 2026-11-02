@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "tsc -b && vite build",
+    "dev": "node scripts/prepare-public.mjs && vite --host 0.0.0.0",
+    "build": "node scripts/prepare-public.mjs && tsc -b && vite build && node scripts/check-dist.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run tests/unit.test.ts",
     "test:e2e": "playwright test"
