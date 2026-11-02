@@ -1,0 +1,2815 @@
+[
+  {
+    "id": "bishop-queen",
+    "title": "Diagonali e linee libere",
+    "subtitle": "Muovere alfiere e donna",
+    "unit": 1,
+    "concepts": [
+      "L’alfiere resta sul colore della casa di partenza.",
+      "La donna combina linee della torre e diagonali dell’alfiere.",
+      "Nessuno dei due può saltare altri pezzi."
+    ],
+    "text": "Prima di muovere un pezzo a lungo raggio, segui tutte le case del suo percorso. L’alfiere si muove solo in diagonale; la donna anche lungo colonne e traverse. Puoi fermarti su una casa libera o catturare un pezzo avversario, ma non oltrepassare un ostacolo.",
+    "demo": {
+      "fen": "8/7k/8/8/8/8/8/B3K3 w - - 0 1",
+      "moves": [
+        [
+          "a1c3"
+        ]
+      ],
+      "title": "Una diagonale aperta",
+      "text": "Osserva l’alfiere da a1 a c3. Passa per b2.",
+      "hint": "Segui la diagonale a1–b2–c3.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/8/8/8/8/3QK3 w - - 0 1",
+      "moves": [
+        [
+          "d1d5"
+        ]
+      ],
+      "title": "La donna prende spazio",
+      "text": "Porta la donna da d1 a d5 sulla colonna libera.",
+      "hint": "La colonna d è libera fino a d5.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Un alfiere su una casa chiara può raggiungere una casa scura con una mossa legale?",
+    "choices": [
+      "No, resta sempre sullo stesso colore",
+      "Sì, se cattura",
+      "Sì, passando dal centro"
+    ],
+    "answer": 0,
+    "summary": "Controlla prima la strada, poi la destinazione. La forza di un pezzo dipende anche dalle linee che ha a disposizione."
+  },
+  {
+    "id": "captures-defense",
+    "title": "Catturare e proteggere",
+    "subtitle": "Scambi e pezzi difesi",
+    "unit": 1,
+    "concepts": [
+      "Il pedone cattura in diagonale in avanti.",
+      "Un pezzo protetto può essere ripreso dopo una cattura.",
+      "Conta attaccanti e difensori prima di uno scambio."
+    ],
+    "text": "Catturare significa occupare la casa di un pezzo avversario e rimuoverlo. Il pedone è speciale: avanza diritto ma cattura in diagonale. Proteggere un pezzo significa poter catturare un eventuale aggressore sulla sua casa; non rende quel pezzo intoccabile.",
+    "demo": {
+      "fen": "7k/8/8/3p4/4P3/8/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "e4d5"
+        ]
+      ],
+      "title": "Il pedone cattura",
+      "text": "Guarda il pedone e4 catturare in d5.",
+      "hint": "Una casa in diagonale in avanti.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/8/8/8/1P6/R3K3 w - - 0 1",
+      "moves": [
+        [
+          "a1a2"
+        ]
+      ],
+      "title": "Una torre in difesa",
+      "text": "Sposta la torre da a1 ad a2: lungo la seconda traversa proteggerà il pedone b2.",
+      "hint": "Da a2 la torre controlla b2.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa significa che un pezzo è difeso?",
+    "choices": [
+      "Non può essere catturato",
+      "Puoi riprendere sulla sua casa dopo una cattura",
+      "Vale più di una donna"
+    ],
+    "answer": 1,
+    "summary": "Non guardare solo ciò che puoi prendere: chiediti anche che cosa potrà riprendere l’avversario."
+  },
+  {
+    "id": "castling",
+    "title": "Il re trova casa",
+    "subtitle": "Arrocco corto e lungo",
+    "unit": 1,
+    "concepts": [
+      "Re e torre coinvolti non devono aver mai mosso.",
+      "Tra re e torre non devono esserci pezzi.",
+      "Il re non può essere sotto scacco, attraversare o raggiungere una casa attaccata."
+    ],
+    "text": "L’arrocco muove due pezzi in un turno: il re avanza di due case verso una torre, che passa sulla casa accanto al re. Serve sia a proteggere il re sia ad attivare la torre. Non basta avere la strada libera: il re non può partire, passare o arrivare sotto attacco. La torre può invece essere attaccata.",
+    "demo": {
+      "fen": "r3k2r/8/8/8/8/8/8/R3K2R w KQkq - 0 1",
+      "moves": [
+        [
+          "e1g1"
+        ]
+      ],
+      "title": "Arrocco sul lato di re",
+      "text": "Guarda il re e1 arrivare in g1 e la torre h1 in f1.",
+      "hint": "Muovi il re di due case verso h1.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "r3k2r/8/8/8/8/8/8/R3K2R w KQkq - 0 1",
+      "moves": [
+        [
+          "e1c1"
+        ]
+      ],
+      "title": "Prova l’arrocco lungo",
+      "text": "Arrocca sul lato di donna: sposta il re da e1 a c1.",
+      "hint": "La torre a1 arriverà in d1.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Il tuo re è sotto scacco e la strada per arroccare è libera. Puoi arroccare?",
+    "choices": [
+      "Sì, sempre",
+      "Solo sul lato di donna",
+      "No, devi risolvere lo scacco in un altro modo"
+    ],
+    "answer": 2,
+    "summary": "Prima dell’arrocco controlla storia dei pezzi, case libere e case attaccate lungo il percorso del re."
+  },
+  {
+    "id": "en-passant",
+    "title": "Una cattura al passaggio",
+    "subtitle": "La regola dell’en passant",
+    "unit": 1,
+    "concepts": [
+      "Vale dopo l’avanzamento di due case di un pedone avversario adiacente.",
+      "Si cattura come se quel pedone avesse avanzato di una sola casa.",
+      "La possibilità vale solo alla mossa immediatamente successiva."
+    ],
+    "text": "Un pedone bianco sulla quinta traversa, o nero sulla quarta, può catturare al passaggio un pedone adiacente appena avanzato di due case dalla posizione iniziale. Si sposta in diagonale sulla casa attraversata dall’avversario. Il pedone catturato viene rimosso dalla casa vicina. La cattura deve essere legale per la sicurezza del re.",
+    "demo": {
+      "fen": "7k/8/8/3pP3/8/8/8/4K3 w - d6 0 2",
+      "moves": [
+        [
+          "e5d6"
+        ]
+      ],
+      "title": "Una casa vuota, una cattura",
+      "text": "Il Nero ha appena mosso d7–d5. Guarda e5–d6 e la scomparsa del pedone d5.",
+      "hint": "Il pedone bianco arriva in d6.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/3pP3/8/8/8/4K3 w - d6 0 2",
+      "moves": [
+        [
+          "e5d6"
+        ]
+      ],
+      "title": "Cogli l’occasione",
+      "text": "Cattura al passaggio il pedone d5 con il pedone e5.",
+      "hint": "Tocca e5, poi d6.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Puoi aspettare un turno prima di catturare en passant?",
+    "choices": [
+      "Sì, finché i pedoni non si muovono",
+      "No, la possibilità scade subito",
+      "Solo se dai scacco"
+    ],
+    "answer": 1,
+    "summary": "L’en passant è una cattura speciale con una finestra di un solo turno: riconosci l’ultima mossa avversaria."
+  },
+  {
+    "id": "promotion",
+    "title": "Un pedone cambia ruolo",
+    "subtitle": "Promozione e sottopromozione",
+    "unit": 1,
+    "concepts": [
+      "Un pedone che raggiunge l’ultima traversa deve promuovere.",
+      "Puoi scegliere donna, torre, alfiere o cavallo del tuo colore.",
+      "Non devi avere perso prima il pezzo scelto."
+    ],
+    "text": "Quando un pedone raggiunge l’ultima traversa diventa subito donna, torre, alfiere o cavallo. Non può restare pedone né diventare re. La donna è spesso la scelta più forte, ma un cavallo può creare uno scacco particolare e una torre può evitare uno stallo: controlla la posizione dopo la promozione.",
+    "demo": {
+      "fen": "7k/P7/8/8/8/8/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "a7a8q"
+        ]
+      ],
+      "title": "Una nuova donna",
+      "text": "Osserva a7–a8 con promozione a donna.",
+      "hint": "Il pedone arriva sull’ottava traversa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/P7/8/8/8/8/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "a7a8n"
+        ]
+      ],
+      "title": "Scegli il cavallo",
+      "text": "Muovi a7 in a8 e scegli Cavallo nel pannello di promozione.",
+      "hint": "La scelta del pezzo fa parte della mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quali pezzi puoi scegliere per la promozione?",
+    "choices": [
+      "Solo un pezzo già catturato",
+      "Donna, torre, alfiere o cavallo",
+      "Qualsiasi pezzo, incluso il re"
+    ],
+    "answer": 1,
+    "summary": "Arrivare in fondo non basta: la scelta del pezzo deve aiutare il tuo piano e rispettare la posizione."
+  },
+  {
+    "id": "notation",
+    "title": "Leggere una partita",
+    "subtitle": "Coordinate, catture e simboli",
+    "unit": 1,
+    "concepts": [
+      "La casa di arrivo identifica la destinazione della mossa.",
+      "In notazione italiana R è re e D è donna; in SAN inglese K e Q.",
+      "x indica una cattura, + scacco, # matto; O-O indica arrocco corto."
+    ],
+    "text": "Le coordinate permettono di comunicare le mosse senza ambiguità. Nella notazione italiana Cf3 indica un cavallo in f3; un pedone non ha iniziale, quindi e4 indica il suo arrivo in e4. Se due pezzi dello stesso tipo possono raggiungere la stessa casa, si aggiunge la colonna o la traversa di partenza. Il motore mostra la notazione SAN inglese: N è cavallo, B alfiere, R torre, Q donna, K re.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e5"
+        ],
+        [
+          "g1f3"
+        ]
+      ],
+      "title": "Tre mosse da leggere",
+      "text": "Segui e4, e5 e Cf3: il motore scrive Nf3 per il cavallo.",
+      "hint": "Le lettere delle case restano sempre a–h.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "g1f3"
+        ]
+      ],
+      "title": "Dal simbolo alla mossa",
+      "text": "Esegui Cf3: porta il cavallo g1 in f3.",
+      "hint": "In SAN inglese la stessa mossa è Nf3.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa indica il simbolo + dopo una mossa?",
+    "choices": [
+      "Scacco",
+      "Cattura obbligatoria",
+      "Promozione"
+    ],
+    "answer": 0,
+    "summary": "Leggi prima il pezzo, poi la casa, infine cattura o scacco. Notazione italiana e inglese usano iniziali diverse."
+  },
+  {
+    "id": "fork",
+    "title": "Due bersagli in una mossa",
+    "subtitle": "La forchetta di cavallo",
+    "unit": 2,
+    "concepts": [
+      "Una forchetta attacca due obiettivi contemporaneamente.",
+      "Il cavallo può attaccare pezzi lontani tra loro.",
+      "Controlla se il pezzo che dà la forchetta può essere catturato."
+    ],
+    "text": "Un doppio attacco costringe l’avversario a scegliere quale minaccia parare. Il cavallo è adatto perché salta e attacca in direzioni insolite. Non tutte le forchette vincono materiale: verifica le risposte, le catture e gli eventuali scacchi dell’avversario.",
+    "demo": {
+      "fen": "k2q3r/8/8/4N3/8/8/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "e5f7"
+        ]
+      ],
+      "title": "Due pezzi pesanti nel mirino",
+      "text": "Cf7 attacca contemporaneamente la donna d8 e la torre h8.",
+      "hint": "Da f7 il cavallo controlla d8 e h8.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "k2q3r/8/8/4N3/8/8/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "e5f7"
+        ]
+      ],
+      "title": "Trova il doppio attacco",
+      "text": "Muovi il cavallo e5 nella casa che attacca donna d8 e torre h8.",
+      "hint": "La casa cercata è f7.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Qual è la caratteristica di una forchetta?",
+    "choices": [
+      "Attacca due bersagli con un solo pezzo",
+      "Muove due pezzi nello stesso turno",
+      "È sempre uno scacco matto"
+    ],
+    "answer": 0,
+    "summary": "Cerca case da cui un pezzo attacca due obiettivi. Poi verifica che l’avversario non abbia una risposta più forte."
+  },
+  {
+    "id": "pin",
+    "title": "Un pezzo inchiodato",
+    "subtitle": "L’attacco lungo una linea",
+    "unit": 2,
+    "concepts": [
+      "Un’inchiodatura collega un pezzo a un bersaglio dietro di lui.",
+      "Se dietro c’è il re, il pezzo non può scoprire lo scacco.",
+      "Torri, alfieri e donne creano inchiodature."
+    ],
+    "text": "Un pezzo è inchiodato quando spostarlo espone un bersaglio sulla stessa linea. Se il bersaglio è il re, la regola della sicurezza del re vieta le mosse che scoprono lo scacco: è un’inchiodatura assoluta. Se dietro c’è una donna o una torre, muovere può essere legale ma costoso.",
+    "demo": {
+      "fen": "3k4/8/5n2/8/8/8/8/2B1K3 w - - 0 1",
+      "moves": [
+        [
+          "c1g5"
+        ]
+      ],
+      "title": "Il cavallo davanti al re",
+      "text": "Ag5 allinea alfiere g5, cavallo f6 e re d8.",
+      "hint": "La diagonale passa per f6 ed e7.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "3k4/8/5n2/8/8/8/8/2B1K3 w - - 0 1",
+      "moves": [
+        [
+          "c1g5"
+        ]
+      ],
+      "title": "Crea l’inchiodatura",
+      "text": "Porta l’alfiere c1 in g5 per inchiodare il cavallo al re.",
+      "hint": "Segui c1–d2–e3–f4–g5.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Un cavallo inchiodato al proprio re può saltare scoprendo lo scacco?",
+    "choices": [
+      "Sì, perché salta",
+      "No, lascerebbe il re sotto attacco",
+      "Solo per catturare una donna"
+    ],
+    "answer": 1,
+    "summary": "Guarda oltre il primo pezzo sulla linea: il bersaglio dietro di lui può limitarne i movimenti."
+  },
+  {
+    "id": "skewer",
+    "title": "Prima il re, poi la torre",
+    "subtitle": "L’infilata",
+    "unit": 2,
+    "concepts": [
+      "Nell’infilata il bersaglio davanti deve o vuole spostarsi.",
+      "Dietro di lui resta un altro pezzo sulla stessa linea.",
+      "Uno scacco può costringere il re a scoprire materiale."
+    ],
+    "text": "L’infilata attacca un pezzo importante davanti a un altro bersaglio. Se il primo si sposta, la linea si apre sul secondo. Quando davanti c’è il re, uno scacco può obbligarlo a lasciare esposto il pezzo dietro. Prima di concludere che guadagni materiale, verifica anche interposizioni e catture.",
+    "demo": {
+      "fen": "r7/8/k7/8/8/8/8/1R2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1a1"
+        ]
+      ],
+      "title": "Una colonna, due bersagli",
+      "text": "Ta1 dà scacco al re a6 e allinea la torre a8 dietro di lui.",
+      "hint": "Apri l’attacco sulla colonna a.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "r7/8/k7/8/8/8/8/1R2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1a1"
+        ]
+      ],
+      "title": "Metti in fila i bersagli",
+      "text": "Porta la torre da b1 ad a1 dando scacco lungo la colonna.",
+      "hint": "Il re nero è davanti alla sua torre.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Nell’esempio, quale pezzo è davanti lungo la linea d’attacco?",
+    "choices": [
+      "La torre bianca",
+      "Il re nero",
+      "Il re bianco"
+    ],
+    "answer": 1,
+    "summary": "Inchiodatura e infilata sfruttano entrambe una linea: osserva quale bersaglio sta davanti e quale dietro."
+  },
+  {
+    "id": "discovered",
+    "title": "Aprire una linea nascosta",
+    "subtitle": "L’attacco di scoperta",
+    "unit": 2,
+    "concepts": [
+      "Spostare un pezzo può liberare l’attacco di un altro.",
+      "Uno scacco di scoperta viene dal pezzo rimasto dietro.",
+      "Valuta anche la minaccia creata dal pezzo che si muove."
+    ],
+    "text": "Non sempre il pezzo che muovi è quello che attacca il bersaglio principale. Spostando un ostacolo puoi aprire la linea di una torre, di un alfiere o della donna. Lo scacco di scoperta è particolarmente forzante: l’avversario deve risolvere l’attacco al re.",
+    "demo": {
+      "fen": "4k3/8/8/8/8/8/4B3/4R1K1 w - - 0 1",
+      "moves": [
+        [
+          "e2b5"
+        ]
+      ],
+      "title": "La torre si fa sentire",
+      "text": "L’alfiere lascia e2: la torre e1 ora dà scacco al re e8.",
+      "hint": "La colonna e si apre dopo la mossa dell’alfiere.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "4k3/8/8/8/8/8/4B3/4R1K1 w - - 0 1",
+      "moves": [
+        [
+          "e2b5"
+        ]
+      ],
+      "title": "Scopri la torre",
+      "text": "Sposta l’alfiere e2 in b5 per liberare lo scacco della torre.",
+      "hint": "Il pezzo che dà scacco resterà in e1.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Chi dà lo scacco dopo Ae2–b5 in questa posizione?",
+    "choices": [
+      "La torre e1",
+      "Il re bianco",
+      "Il pedone e2"
+    ],
+    "answer": 0,
+    "summary": "Prima di muovere, guarda le linee che stai chiudendo e quelle che potresti aprire."
+  },
+  {
+    "id": "back-rank",
+    "title": "L’ultima traversa è fragile",
+    "subtitle": "Il matto del corridoio",
+    "unit": 2,
+    "concepts": [
+      "I pedoni possono impedire al proprio re di fuggire.",
+      "Una torre può dare matto sull’ultima traversa.",
+      "Una casa di fuga va valutata insieme alle minacce avversarie."
+    ],
+    "text": "Un re dietro ai propri pedoni sembra protetto, ma può restare senza una via d’uscita. Se una torre o una donna invade l’ultima traversa e il re non può catturare, fuggire o interporre un pezzo, è matto. In difesa controlla sempre gli scacchi sulla tua traversa di fondo.",
+    "demo": {
+      "fen": "6k1/5ppp/8/8/8/8/8/4R1K1 w - - 0 1",
+      "moves": [
+        [
+          "e1e8"
+        ]
+      ],
+      "title": "La torre entra in ottava",
+      "text": "Te8# chiude il re g8 dietro ai pedoni f7, g7 e h7.",
+      "hint": "Nessun pezzo può bloccare lo scacco.",
+      "comments": null,
+      "mate": true
+    },
+    "practice": {
+      "fen": "6k1/5ppp/8/8/8/8/8/4R1K1 w - - 0 1",
+      "moves": [
+        [
+          "e1e8"
+        ]
+      ],
+      "title": "Trova il matto del corridoio",
+      "text": "Porta la torre e1 sull’ottava traversa per dare matto.",
+      "hint": "La casa di arrivo è e8.",
+      "comments": null,
+      "mate": true
+    },
+    "question": "Perché il re nero non può scendere sulla settima traversa?",
+    "choices": [
+      "Ci sono i suoi pedoni sulle case di fuga",
+      "Il re non può mai arretrare",
+      "La torre controlla tutte le case della scacchiera"
+    ],
+    "answer": 0,
+    "summary": "Quando un re è chiuso dai suoi stessi pedoni, controlla gli ingressi di torri e donna sull’ultima traversa."
+  },
+  {
+    "id": "opening-center",
+    "title": "Cominciare dal centro",
+    "subtitle": "Spazio e prime mosse",
+    "unit": 3,
+    "concepts": [
+      "I pedoni centrali controllano case utili.",
+      "Muovere un pedone centrale può aprire linee per i pezzi.",
+      "Le prime mosse vanno collegate allo sviluppo e alla sicurezza del re."
+    ],
+    "text": "Nell’apertura cerca di controllare il centro, sviluppare i pezzi e proteggere il re. e4 e d4 sono due inizi possibili: non esiste una sola mossa obbligatoria. Guarda come una mossa di pedone libera le diagonali per alfiere e donna, ma ricorda che il pedone non può tornare indietro.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e5"
+        ]
+      ],
+      "title": "Due eserciti verso il centro",
+      "text": "Segui e4 ed e5 e osserva le diagonali che si aprono.",
+      "hint": "I pedoni centrali liberano i pezzi dietro.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "d2d4"
+        ]
+      ],
+      "title": "Un altro inizio possibile",
+      "text": "Occupa il centro con d2–d4.",
+      "hint": "Il pedone davanti alla donna può avanzare di due case.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quale piano generale è utile all’inizio?",
+    "choices": [
+      "Muovere solo la donna",
+      "Sviluppare, controllare il centro e proteggere il re",
+      "Spingere tutti i pedoni laterali"
+    ],
+    "answer": 1,
+    "summary": "Non memorizzare solo una sequenza: chiediti quali pezzi e quali case migliori con ogni mossa."
+  },
+  {
+    "id": "development",
+    "title": "Portare i pezzi in partita",
+    "subtitle": "Sviluppo e tempi",
+    "unit": 3,
+    "concepts": [
+      "Sviluppare significa dare ai pezzi case utili.",
+      "Ripetere mosse senza necessità può perdere tempo.",
+      "Una minaccia concreta può giustificare un’eccezione ai principi."
+    ],
+    "text": "Un pezzo rimasto sulla casa iniziale spesso contribuisce poco. Porta cavalli e alfieri verso case attive e prepara l’arrocco. Evita di muovere più volte lo stesso pezzo senza motivo mentre gli altri attendono. Un principio è una guida, non un divieto: prima rispondi alle minacce reali.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e5"
+        ],
+        [
+          "g1f3"
+        ],
+        [
+          "b8c6"
+        ]
+      ],
+      "title": "Lo sviluppo comincia",
+      "text": "Cf3 attacca e5; Cc6 sviluppa e difende quel pedone.",
+      "hint": "Ogni mossa ha un compito concreto.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "moves": [
+        [
+          "g1f3"
+        ]
+      ],
+      "title": "Un pezzo attivo",
+      "text": "Sviluppa il cavallo g1 in f3, attaccando e5.",
+      "hint": "Il cavallo arriva vicino al centro.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quando è sensato muovere di nuovo un pezzo già sviluppato?",
+    "choices": [
+      "Quando serve a rispondere a una minaccia concreta",
+      "Mai, in nessuna posizione",
+      "Solo dopo venti mosse"
+    ],
+    "answer": 0,
+    "summary": "Sviluppo e minacce vanno insieme: migliora i pezzi senza ignorare ciò che vuole fare l’avversario."
+  },
+  {
+    "id": "opening-choices",
+    "title": "Scegliere un’apertura",
+    "subtitle": "Piani prima dei nomi",
+    "unit": 3,
+    "concepts": [
+      "1.e4 e 1.d4 aprono strutture diverse.",
+      "Contro e4, e5 e c5 sono risposte possibili con idee diverse.",
+      "Un repertorio piccolo si impara capendo i piani."
+    ],
+    "text": "Puoi iniziare con un repertorio essenziale: una scelta col Bianco e risposte ragionate contro e4 e d4. Dopo 1.e4 e5 entrambi occupano il centro simmetricamente. Dopo 1.e4 c5, il Nero lotta per d4 dal lato di donna: è l’inizio della Siciliana. Queste sono idee iniziali, non sequenze da giocare senza osservare l’avversario.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "c7c5"
+        ]
+      ],
+      "title": "Una risposta asimmetrica",
+      "text": "Guarda e4 e c5: il pedone nero controlla d4.",
+      "hint": "Un pedone controlla in diagonale in avanti.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "moves": [
+        [
+          "e7e5"
+        ]
+      ],
+      "title": "Rispondi al centro",
+      "text": "Con il Nero gioca e7–e5 contro 1.e4.",
+      "hint": "La casa e5 è raggiungibile con il doppio passo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa dovresti capire di una linea di apertura?",
+    "choices": [
+      "Solo il suo nome",
+      "I piani, le case utili e le minacce",
+      "Solo quante mosse dura"
+    ],
+    "answer": 1,
+    "summary": "Scegli poche strutture e rivedi le tue partite per capire dove i pezzi hanno bisogno di andare."
+  },
+  {
+    "id": "strategy",
+    "title": "Migliorare la posizione",
+    "subtitle": "Pezzi attivi e colonne aperte",
+    "unit": 3,
+    "concepts": [
+      "Una colonna aperta non contiene pedoni di nessun colore.",
+      "Le torri lavorano bene su linee aperte.",
+      "Un piano deve rispettare le minacce immediate."
+    ],
+    "text": "Quando non c’è una combinazione immediata, cerca il tuo pezzo meno attivo. Una torre può migliorare occupando una colonna aperta, un cavallo una casa stabile, un alfiere una diagonale libera. Prima di eseguire il piano controlla scacchi, catture e minacce dell’avversario: una buona idea strategica non giustifica perdere un pezzo.",
+    "demo": {
+      "fen": "6k1/5ppp/8/8/8/8/PPP2PPP/R5K1 w - - 0 1",
+      "moves": [
+        [
+          "a1d1"
+        ]
+      ],
+      "title": "La torre trova una colonna",
+      "text": "Td1 occupa la colonna d, priva di pedoni.",
+      "hint": "La torre può spostarsi lungo la prima traversa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "6k1/5ppp/8/8/8/8/PPP2PPP/R5K1 w - - 0 1",
+      "moves": [
+        [
+          "a1d1"
+        ]
+      ],
+      "title": "Attiva la torre",
+      "text": "Porta la torre a1 in d1 sulla colonna aperta.",
+      "hint": "Nessun pedone occupa la colonna d.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Qual è una buona prima domanda quando non vedi tattiche?",
+    "choices": [
+      "Quale mio pezzo posso migliorare in sicurezza?",
+      "Come posso muovere più in fretta?",
+      "Quale pedone posso spingere senza guardare?"
+    ],
+    "answer": 0,
+    "summary": "Un piano semplice e verificato vale più di una manovra elegante che trascura una minaccia."
+  },
+  {
+    "id": "king-endgame",
+    "title": "Anche il re entra in gioco",
+    "subtitle": "Attività nei finali",
+    "unit": 4,
+    "concepts": [
+      "Con poche minacce il re può diventare un pezzo attivo.",
+      "I re non possono mai stare su case adiacenti.",
+      "Avvicinare il re ai pedoni può decidere il finale."
+    ],
+    "text": "Nel mediogioco il re cerca riparo; in molti finali deve partecipare. Può sostenere un pedone, attaccare quelli avversari o occupare case centrali. Resta però un re: non può entrare sotto attacco, né avvicinarsi a una casa controllata dal re avversario.",
+    "demo": {
+      "fen": "7k/7p/8/8/8/8/P3K3/8 w - - 0 1",
+      "moves": [
+        [
+          "e2d3"
+        ]
+      ],
+      "title": "Un passo verso il centro",
+      "text": "Rd3 rende il re più attivo senza avvicinarlo al re nero.",
+      "hint": "Controlla prima le case attaccate.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/7p/8/8/8/8/P3K3/8 w - - 0 1",
+      "moves": [
+        [
+          "e2d3"
+        ]
+      ],
+      "title": "Attiva il tuo re",
+      "text": "Muovi il re da e2 a d3.",
+      "hint": "Il re si sposta di una casa in diagonale.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quando è utile centralizzare il re?",
+    "choices": [
+      "Quando il percorso è sicuro e il finale lo richiede",
+      "Sempre, ignorando gli scacchi",
+      "Solo se non hai più pedoni"
+    ],
+    "answer": 0,
+    "summary": "Nei finali valuta il re come una risorsa attiva, mantenendo sempre il controllo delle case attaccate."
+  },
+  {
+    "id": "opposition",
+    "title": "Un passo che conta",
+    "subtitle": "L’opposizione dei re",
+    "unit": 4,
+    "concepts": [
+      "Due re separati da una casa possono essere in opposizione diretta.",
+      "Spesso chi deve muovere deve cedere una casa utile.",
+      "La presenza di pedoni e mosse d’attesa cambia la valutazione."
+    ],
+    "text": "Quando i re si fronteggiano sulla stessa colonna o traversa con una casa tra loro, nessuno può avanzare direttamente verso l’altro. Se deve muovere uno dei due re, spesso deve cedere il passo. L’opposizione è uno strumento: il risultato dipende anche dai pedoni, dalla posizione e dal turno.",
+    "demo": {
+      "fen": "8/4k3/8/8/4K3/8/P7/8 w - - 0 1",
+      "moves": [
+        [
+          "e4e5"
+        ]
+      ],
+      "title": "Prendi l’opposizione",
+      "text": "Re5 porta i re in e5 ed e7, con e6 tra loro. Ora tocca al Nero: il suo re non può avanzare in e6.",
+      "hint": "La casa e5 non è controllata dal re e7.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "8/4k3/8/8/4K3/8/P7/8 w - - 0 1",
+      "moves": [
+        [
+          "e4e5"
+        ]
+      ],
+      "title": "Una casa tra i re",
+      "text": "Porta il re e4 in e5 per ottenere l’opposizione diretta.",
+      "hint": "I re saranno separati dalla casa e6.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "L’opposizione garantisce sempre la vittoria?",
+    "choices": [
+      "Sì, in ogni finale",
+      "No, dipende dalla posizione e dalle mosse disponibili",
+      "Solo se hai il Bianco"
+    ],
+    "answer": 1,
+    "summary": "Studia turno e case di ingresso insieme: la sola distanza tra i re non basta per decidere il risultato."
+  },
+  {
+    "id": "passed-pawn",
+    "title": "La corsa del pedone",
+    "subtitle": "Pedoni passati e sostegno",
+    "unit": 4,
+    "concepts": [
+      "Un pedone passato non ha pedoni avversari davanti sulla stessa colonna o su quelle adiacenti.",
+      "Il re può sostenere l’avanzata.",
+      "Prima di spingere, controlla se il pedone può essere fermato o catturato."
+    ],
+    "text": "Un pedone passato può diventare una minaccia perché nessun pedone nemico davanti può bloccarlo o catturarlo dalle colonne adiacenti. I pezzi possono comunque fermarlo. Calcola la corsa fino alla promozione e cerca di sostenerlo con il re o una torre.",
+    "demo": {
+      "fen": "7k/8/8/3P4/4K3/8/8/8 w - - 0 1",
+      "moves": [
+        [
+          "d5d6"
+        ]
+      ],
+      "title": "Il pedone avanza",
+      "text": "d6 avvicina il pedone alla promozione; il re bianco controlla case vicine.",
+      "hint": "Il pedone può avanzare di una casa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/3P4/4K3/8/8/8 w - - 0 1",
+      "moves": [
+        [
+          "d5d6"
+        ]
+      ],
+      "title": "Un passo verso la promozione",
+      "text": "Spingi il pedone d5 in d6.",
+      "hint": "La casa d6 è libera.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Un pedone passato è impossibile da fermare?",
+    "choices": [
+      "Sì, promuove sempre",
+      "No, re e pezzi possono ancora bloccarlo o catturarlo",
+      "Solo se è sulla colonna a"
+    ],
+    "answer": 1,
+    "summary": "Un pedone passato crea un piano, non una vittoria automatica: conta tempi, controlli e sostegno."
+  },
+  {
+    "id": "queen-mate",
+    "title": "Chiudere con re e donna",
+    "subtitle": "Coordinare senza fare stallo",
+    "unit": 4,
+    "concepts": [
+      "La donna restringe le case disponibili al re avversario.",
+      "Il tuo re sostiene l’avvicinamento finale.",
+      "Prima di una mossa senza scacco, controlla che non sia stallo."
+    ],
+    "text": "Con re e donna contro re, riduci gradualmente lo spazio del re avversario e avvicina il tuo in sicurezza. Non inseguire il re con scacchi casuali. Se gli togli tutte le mosse senza dare scacco, fai stallo. Nell’esercizio vediamo la conclusione: la donna è sostenuta dal re e copre tutte le fughe.",
+    "demo": {
+      "fen": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+      "moves": [
+        [
+          "g6g7"
+        ]
+      ],
+      "title": "Una conclusione coordinata",
+      "text": "Dg7# è protetta dal re f6 e chiude le fughe.",
+      "hint": "La donna va accanto al re, sostenuta.",
+      "comments": null,
+      "mate": true
+    },
+    "practice": {
+      "fen": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+      "moves": [
+        [
+          "g6g7"
+        ]
+      ],
+      "title": "Concludi senza stallo",
+      "text": "Dai scacco matto con Dg7.",
+      "hint": "Controlla che la mossa dia davvero scacco.",
+      "comments": null,
+      "mate": true
+    },
+    "question": "Il Nero non è sotto scacco e non ha mosse legali. Hai vinto?",
+    "choices": [
+      "Sì, è matto",
+      "No, è stallo e quindi patta",
+      "Deve saltare il turno"
+    ],
+    "answer": 1,
+    "summary": "La donna limita, il re sostiene: termina solo quando scacco e assenza di difese coincidono."
+  },
+  {
+    "id": "rook-mate",
+    "title": "Chiudere con re e torre",
+    "subtitle": "Tagliare le fughe",
+    "unit": 4,
+    "concepts": [
+      "La torre separa il re avversario da una parte della scacchiera.",
+      "Il re sostiene la torre e controlla le case di fuga.",
+      "Gli scacchi sono utili quando riducono lo spazio."
+    ],
+    "text": "Con re e torre contro re, usa la torre per tagliare una traversa o una colonna e il re per sostenere l’avanzata. Spingi il re avversario verso un bordo senza lasciare la torre in presa. Nella posizione finale il re bianco controlla la settima traversa e la torre dà scacco sull’ottava.",
+    "demo": {
+      "fen": "7k/8/6K1/8/8/8/8/R7 w - - 0 1",
+      "moves": [
+        [
+          "a1a8"
+        ]
+      ],
+      "title": "La torre chiude il bordo",
+      "text": "Ta8# attacca il re h8; il re g6 controlla g7 e h7.",
+      "hint": "La torre controlla tutta l’ottava traversa.",
+      "comments": null,
+      "mate": true
+    },
+    "practice": {
+      "fen": "7k/8/6K1/8/8/8/8/R7 w - - 0 1",
+      "moves": [
+        [
+          "a1a8"
+        ]
+      ],
+      "title": "Trova il matto di torre",
+      "text": "Porta la torre a1 in a8 per concludere.",
+      "hint": "Il re bianco ha già tolto le fughe.",
+      "comments": null,
+      "mate": true
+    },
+    "question": "Qual è il ruolo del re bianco nella posizione finale?",
+    "choices": [
+      "Controllare le case di fuga sulla settima traversa",
+      "Proteggere la torre in a8 direttamente",
+      "Saltare il re avversario"
+    ],
+    "answer": 0,
+    "summary": "Una torre da sola dà scacchi; insieme al re può togliere tutte le vie di fuga."
+  },
+  {
+    "id": "results-practice",
+    "title": "Giocare, misurare, imparare",
+    "subtitle": "Risultati, orologio e analisi",
+    "unit": 5,
+    "concepts": [
+      "Vittoria: 1 punto; patta: mezzo punto; sconfitta: 0.",
+      "Il tempo disponibile fa parte delle regole della partita.",
+      "L’Elo misura risultati nel tempo, non il valore di una persona."
+    ],
+    "text": "Una partita può finire per matto, resa, tempo o patta. Allo scadere del tempo, il risultato è patta se l’avversario non può dare matto con alcuna sequenza legale; altrimenti perdi. Nelle regole FIDE, se esiste materiale da matto la caduta della bandierina conta anche se vincere sarebbe difficile. Per studiare, scegli un ritmo che ti lasci pensare, annota la prima decisione dubbia e analizzala prima senza motore, poi confronta. Una sessione utile alterna partita, revisione e un esercizio mirato. Il punteggio Elo cambia in base ai risultati e agli avversari; nessun corso garantisce un numero preciso.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e5"
+        ],
+        [
+          "g1f3"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 e5 Nf3. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "moves": [
+        [
+          "g1f3"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Sviluppa il cavallo in f3 come faresti in una partita ragionata.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Come useresti un errore trovato dopo una partita?",
+    "choices": [
+      "Come indicazione di cosa esercitare",
+      "Come prova che devi smettere",
+      "Solo per cambiare apertura ogni giorno"
+    ],
+    "answer": 0,
+    "summary": "Gioca con tempo per pensare, rivedi una decisione e trasformala in un piccolo obiettivo di allenamento."
+  },
+  {
+    "id": "white-e4",
+    "title": "Un piano dopo 1.e4",
+    "subtitle": "Sviluppo nell’Italiana",
+    "unit": 5,
+    "concepts": [
+      "Con e4 apri la diagonale dell’alfiere f1.",
+      "L’alfiere in c4 guarda f7.",
+      "Il piano comprende sviluppo e sicurezza del re, non solo attacco."
+    ],
+    "text": "Dopo 1.e4 e5 2.Cf3 Cc6, Ac4 sviluppa un pezzo e controlla il centro. L’arrocco e la preparazione di d4 sono idee frequenti, ma la scelta dipende dalle mosse del Nero. La casa f7 è inizialmente difesa solo dal re: è un bersaglio da conoscere, non una promessa di matto.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e5"
+        ],
+        [
+          "g1f3"
+        ],
+        [
+          "b8c6"
+        ],
+        [
+          "f1c4"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 e5 Nf3 Nc6 Bc4. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "moves": [
+        [
+          "f1c4"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Porta l’alfiere f1 in c4 seguendo il piano dell’Italiana.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quale idea accompagna lo sviluppo dell’alfiere in c4?",
+    "choices": [
+      "Controllare linee utili e preparare il resto dello sviluppo",
+      "Vincere obbligatoriamente in tre mosse",
+      "Smettere di sviluppare gli altri pezzi"
+    ],
+    "answer": 0,
+    "summary": "Un’apertura utile ti lascia pezzi coordinati e un re sicuro anche quando la linea memorizzata finisce."
+  },
+  {
+    "id": "white-d4",
+    "title": "Costruire dopo 1.d4",
+    "subtitle": "Centro e gambetto di donna",
+    "unit": 5,
+    "concepts": [
+      "Il pedone d4 è difeso inizialmente dalla donna.",
+      "c4 mette pressione sul pedone d5.",
+      "Il Nero può accettare, sostenere o cambiare la struttura centrale."
+    ],
+    "text": "Con 1.d4 inizi una lotta centrale spesso più stabile. Dopo 1...d5, 2.c4 offre un pedone per mettere in discussione d5: è il gambetto di donna. Non è necessario recuperare subito ogni pedone se lo sviluppo è in ritardo. Prima valuta centro, sicurezza e possibilità concrete di ripresa.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "d2d4"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "c2c4"
+        ],
+        [
+          "e7e6"
+        ],
+        [
+          "b1c3"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: d4 d5 c4 e6 Nc3. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+      "moves": [
+        [
+          "c2c4"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Gioca c2–c4 per attaccare il centro nero.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quale pedone nero viene messo sotto pressione da c4?",
+    "choices": [
+      "d5",
+      "h7",
+      "a7"
+    ],
+    "answer": 0,
+    "summary": "Con d4 e c4 chiedi al Nero una decisione sul centro: poi sviluppa i pezzi in base alla struttura ottenuta."
+  },
+  {
+    "id": "black-classical",
+    "title": "Rispondere con il Nero",
+    "subtitle": "Centro simmetrico e sviluppo",
+    "unit": 5,
+    "concepts": [
+      "Con il Nero devi osservare la scelta iniziale del Bianco.",
+      "e5 contro e4 e d5 contro d4 occupano il centro.",
+      "Difendere un pedone sviluppando un pezzo può guadagnare coordinazione."
+    ],
+    "text": "Il Nero non deve aspettare passivamente: può contestare subito il centro. Dopo e4 e5 Cf3, Cc6 sviluppa e difende e5. Contro d4, d5 propone una struttura diversa. Non usare la stessa sequenza ignorando le minacce: una mossa utile in una linea può perdere materiale in un’altra.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e5"
+        ],
+        [
+          "g1f3"
+        ],
+        [
+          "b8c6"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 e5 Nf3 Nc6. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "moves": [
+        [
+          "b8c6"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Con il Nero sviluppa il cavallo b8 in c6, difendendo e5.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Perché Cc6 è utile dopo e4 e5 Cf3?",
+    "choices": [
+      "Sviluppa e difende e5",
+      "Permette di saltare due turni",
+      "Arrocca immediatamente il re"
+    ],
+    "answer": 0,
+    "summary": "Rispondere al centro e sviluppare con uno scopo rende il gioco del Nero più solido."
+  },
+  {
+    "id": "black-setup",
+    "title": "Una struttura, molte risposte",
+    "subtitle": "Fianchetto e sistemi flessibili",
+    "unit": 5,
+    "concepts": [
+      "Un fianchetto porta l’alfiere in g7 o b7.",
+      "Un sistema di sviluppo non elimina la necessità di calcolare.",
+      "I pedoni centrali avversari richiedono controgioco."
+    ],
+    "text": "Un sistema con Cf6, g6 e Ag7 può essere usato contro varie strutture, adattando l’ordine delle mosse. Il fianchetto dà all’alfiere una lunga diagonale, ma spendere tempi sul lato non giustifica lasciare il centro all’avversario senza un piano. Costruisci per piccoli blocchi: sicurezza del re, sviluppo e una spinta centrale preparata. Non scegliere un ordine automatico se il Bianco crea una minaccia.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "d2d4"
+        ],
+        [
+          "g8f6"
+        ],
+        [
+          "c2c4"
+        ],
+        [
+          "g7g6"
+        ],
+        [
+          "b1c3"
+        ],
+        [
+          "f8g7"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: d4 Nf6 c4 g6 Nc3 Bg7. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3",
+      "moves": [
+        [
+          "f8g7"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Completa il fianchetto portando l’alfiere f8 in g7.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa devi fare usando un sistema di sviluppo?",
+    "choices": [
+      "Adattarlo alle minacce e al centro avversario",
+      "Giocare sempre le stesse mosse a occhi chiusi",
+      "Non muovere mai pedoni centrali"
+    ],
+    "answer": 0,
+    "summary": "Un sistema ti offre una struttura familiare, non un permesso di ignorare la posizione."
+  },
+  {
+    "id": "ladder-mate",
+    "title": "Due torri fanno una scala",
+    "subtitle": "Tagliare una traversa alla volta",
+    "unit": 5,
+    "concepts": [
+      "Una torre limita il re e l’altra dà scacco.",
+      "Alternare le torri può restringere lo spazio.",
+      "Le torri devono restare fuori dalla portata del re."
+    ],
+    "text": "Due torri possono cooperare su traverse vicine. Una controlla la via di fuga mentre l’altra spinge il re verso il bordo con uno scacco. Se il re si avvicina a una torre, spostala lontano prima di riprendere il piano. Nel finale mostrato una torre controlla la settima traversa e l’altra chiude sull’ottava.",
+    "demo": {
+      "fen": "7k/8/8/8/8/8/8/RR2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1b7"
+        ]
+      ],
+      "title": "La prima torre taglia",
+      "text": "Tb7 toglie al re nero le case della settima traversa.",
+      "hint": "La torre b1 sale lungo la colonna b.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/1R6/8/8/8/8/8/R3K3 w - - 0 1",
+      "moves": [
+        [
+          "a1a8"
+        ]
+      ],
+      "title": "La seconda torre conclude",
+      "text": "Dai matto con Ta8, mentre Tb7 controlla le fughe.",
+      "hint": "Una torre controlla la settima, l’altra l’ottava.",
+      "comments": null,
+      "mate": true
+    },
+    "question": "Qual è il lavoro delle due torri?",
+    "choices": [
+      "Dividersi scacco e controllo delle fughe",
+      "Stare sempre sulla stessa casa",
+      "Avvicinarsi al re nemico senza difese"
+    ],
+    "answer": 0,
+    "summary": "Alterna i compiti delle torri, restringi lo spazio e controlla che nessuna torre possa essere catturata."
+  },
+  {
+    "id": "draw-rules",
+    "title": "Quando nessuno vince",
+    "subtitle": "Patte, ripetizioni e materiale",
+    "unit": 5,
+    "concepts": [
+      "Lo stallo è patta; il re non è sotto scacco e non ci sono mosse legali.",
+      "Tre ripetizioni e 50 mosse per parte senza catture o mosse di pedone consentono una richiesta di patta secondo le regole FIDE.",
+      "Cinque ripetizioni e 75 mosse per parte producono una patta automatica, salvo il matto che conclude prima."
+    ],
+    "text": "Una patta può essere concordata secondo le regole del torneo o derivare dalla posizione. Nelle ripetizioni contano stesso turno e stesse possibilità legali, inclusi arrocco ed en passant: non basta guardare la disposizione dei pezzi. Una posizione è morta se nessuna sequenza legale può dare matto: re solo contro re solo, re e alfiere contro re, e re e cavallo contro re sono esempi. Due cavalli contro re solo non possono forzare il matto, ma non sono una posizione morta solo per questo: un matto con collaborazione può esistere. Con solo l’alfiere, il re o il cavallo non puoi vincere contro un re solo. Gli esempi qui allenano la distinzione tra una minaccia e un vero matto, non gestiscono richieste arbitrali.",
+    "demo": {
+      "fen": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+      "moves": [
+        [
+          "g6g7"
+        ]
+      ],
+      "title": "Lo scacco cambia il risultato",
+      "text": "Dg7 è matto; togliere le fughe senza scacco sarebbe invece stallo.",
+      "hint": "Verifica sempre se il re è attaccato.",
+      "comments": null,
+      "mate": true
+    },
+    "practice": {
+      "fen": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+      "moves": [
+        [
+          "g6g7"
+        ]
+      ],
+      "title": "Evita la patta per stallo",
+      "text": "Esegui Dg7#, una mossa che dà davvero scacco.",
+      "hint": "La donna in g7 è protetta dal re f6.",
+      "comments": null,
+      "mate": true
+    },
+    "question": "Per contare una ripetizione basta che i pezzi siano sulle stesse case?",
+    "choices": [
+      "No: devono coincidere turno e possibilità legali",
+      "Sì, sempre",
+      "Solo se è il Bianco a muovere"
+    ],
+    "answer": 0,
+    "summary": "Conosci la differenza tra patta su richiesta, patta automatica e posizione morta; nelle partite ufficiali segui il regolamento applicabile."
+  },
+  {
+    "id": "piece-vision",
+    "title": "Vedere prima di muovere",
+    "subtitle": "Valore, attacchi e difese",
+    "unit": 5,
+    "concepts": [
+      "I valori indicativi sono pedone 1, cavallo e alfiere circa 3, torre 5, donna 9.",
+      "Il valore reale dipende da attività, sicurezza e minacce.",
+      "Un pezzo lasciato indifeso può diventare un bersaglio tattico."
+    ],
+    "text": "Prima di ogni mossa passa in rassegna ciò che è attaccato e ciò che è difeso. I valori aiutano a confrontare scambi, ma un matto pesa più di tutto il materiale e un pezzo bloccato può essere poco utile. Conta le catture possibili fino alla fine: prendere una donna non conviene se nel frattempo subisci matto.",
+    "demo": {
+      "fen": "7k/8/8/8/8/8/1q6/1R2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1b2"
+        ]
+      ],
+      "title": "Una donna senza difesa",
+      "text": "Txb2 cattura la donna sulla colonna b.",
+      "hint": "La torre muove in linea retta.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/8/8/8/1q6/1R2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1b2"
+        ]
+      ],
+      "title": "Trova il bersaglio",
+      "text": "Cattura la donna b2 con la torre b1.",
+      "hint": "Controlla che il tuo re resti al sicuro.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "I valori numerici dei pezzi decidono sempre la mossa migliore?",
+    "choices": [
+      "No, posizione e minacce possono contare di più",
+      "Sì, senza eccezioni",
+      "Solo nei primi dieci turni"
+    ],
+    "answer": 0,
+    "summary": "Usa il materiale come bussola e la posizione come verifica. Prima guarda le minacce a entrambi i re."
+  },
+  {
+    "id": "london",
+    "title": "Un centro per il sistema di Londra",
+    "subtitle": "d4, Cf3 e Af4",
+    "unit": 6,
+    "concepts": [
+      "Af4 sviluppa l’alfiere fuori dalla catena di pedoni.",
+      "e3 e c3 possono sostenere d4.",
+      "Controlla le pressioni su b2 e sul centro."
+    ],
+    "text": "Un’impostazione del sistema di Londra usa d4, Cf3 e Af4, spesso seguiti da e3 e c3. L’alfiere esce prima che e3 chiuda la diagonale c1–h6. Il sistema è flessibile, ma il Nero può attaccare il centro con c5 o creare pressioni su b2: rispondi alla posizione concreta invece di completare lo schema automaticamente.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "d2d4"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "g1f3"
+        ],
+        [
+          "g8f6"
+        ],
+        [
+          "c1f4"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: d4 d5 Nf3 Nf6 Bf4. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq - 2 3",
+      "moves": [
+        [
+          "c1f4"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Sviluppa l’alfiere c1 in f4 prima di giocare e3.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Perché Af4 può precedere e3?",
+    "choices": [
+      "Per portare l’alfiere fuori dalla catena di pedoni",
+      "Per arroccare con l’alfiere",
+      "Per impedire qualsiasi risposta del Nero"
+    ],
+    "answer": 0,
+    "summary": "Uno schema familiare funziona meglio quando riconosci le rotture centrali e le minacce contro di lui."
+  },
+  {
+    "id": "vienna",
+    "title": "Sviluppare con la Viennese",
+    "subtitle": "e4 e Cc3",
+    "unit": 6,
+    "concepts": [
+      "Cc3 sostiene e4 e sviluppa un pezzo.",
+      "f4 è un piano possibile, non obbligatorio.",
+      "Spingere il pedone f cambia la sicurezza del re."
+    ],
+    "text": "Dopo 1.e4 e5, 2.Cc3 introduce la Viennese. Il Bianco può scegliere uno sviluppo tranquillo o preparare f4. Prima di spingere il pedone f considera le linee che apri vicino al tuo re e le risposte centrali del Nero. Impara prima lo sviluppo, poi le varianti più taglienti.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e5"
+        ],
+        [
+          "b1c3"
+        ],
+        [
+          "g8f6"
+        ],
+        [
+          "f1c4"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 e5 Nc3 Nf6 Bc4. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "moves": [
+        [
+          "b1c3"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Gioca Cb1–c3 per sostenere e4 e sviluppare.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa cambia spesso dopo f2–f4?",
+    "choices": [
+      "Si aprono linee e si modifica la sicurezza del re",
+      "Il re può attraversare case attaccate",
+      "I cavalli non possono più saltare"
+    ],
+    "answer": 0,
+    "summary": "La Viennese offre più piani: scegli quello che puoi sostenere con sviluppo e calcolo."
+  },
+  {
+    "id": "alapin",
+    "title": "Preparare d4 contro la Siciliana",
+    "subtitle": "La struttura con c3",
+    "unit": 6,
+    "concepts": [
+      "Dopo e4 c5, c3 prepara d4.",
+      "Il pedone c3 occupa la casa naturale del cavallo b1.",
+      "Il Nero può reagire subito al centro."
+    ],
+    "text": "Contro 1.e4 c5, 2.c3 prepara una coppia di pedoni in d4 ed e4: è l’idea dell’Alapin. Il prezzo è che il cavallo b1 non può usare subito c3. Il Nero può giocare d5 o Cf6 per contestare la costruzione: non dare per scontato di poter occupare il centro senza opposizione.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "c7c5"
+        ],
+        [
+          "c2c3"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "e4d5"
+        ],
+        [
+          "d8d5"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 c5 c3 d5 exd5 Qxd5. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "moves": [
+        [
+          "c2c3"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Prepara d4 con il pedone c2–c3.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quale compromesso comporta c3?",
+    "choices": [
+      "Sostiene d4 ma occupa una casa utile al cavallo",
+      "Perde immediatamente la donna",
+      "Impedisce per sempre l’arrocco"
+    ],
+    "answer": 0,
+    "summary": "Ogni costruzione centrale occupa spazio ma usa tempi: confrontala con il controgioco del Nero."
+  },
+  {
+    "id": "scandinavian",
+    "title": "Sfidare e4 subito",
+    "subtitle": "La difesa Scandinava",
+    "unit": 6,
+    "concepts": [
+      "d5 contesta immediatamente e4.",
+      "La ripresa di donna può esporla ad attacchi di sviluppo.",
+      "Un tempo guadagnato va usato per attivare un pezzo."
+    ],
+    "text": "Dopo 1.e4 d5, il Nero propone subito una decisione sul centro. Con 2.exd5 Dxd5 la donna entra presto in gioco, ma il Bianco può sviluppare il cavallo con Cc3 attaccandola. Il Nero deve scegliere una ritirata sicura e continuare lo sviluppo; il Bianco non deve inseguire la donna a costo di perdere coordinazione.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "e4d5"
+        ],
+        [
+          "d8d5"
+        ],
+        [
+          "b1c3"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 d5 exd5 Qxd5 Nc3. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "moves": [
+        [
+          "d7d5"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Con il Nero contesta il pedone e4 giocando d7–d5.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa ottiene il Bianco con Cc3 dopo Dxd5?",
+    "choices": [
+      "Sviluppo con attacco alla donna",
+      "Un matto obbligato",
+      "Il diritto di fare due mosse consecutive"
+    ],
+    "answer": 0,
+    "summary": "Una donna attiva presto può diventare un bersaglio: conta i tempi senza perdere di vista il centro."
+  },
+  {
+    "id": "caro-kann",
+    "title": "Una spinta preparata",
+    "subtitle": "La difesa Caro-Kann",
+    "unit": 6,
+    "concepts": [
+      "c6 sostiene la successiva spinta d5.",
+      "La struttura lascia inizialmente libera la diagonale dell’alfiere c8.",
+      "Scegli lo sviluppo in base alle decisioni centrali del Bianco."
+    ],
+    "text": "La Caro-Kann inizia con 1.e4 c6, preparando d5. Dopo 2.d4 d5, il Bianco può avanzare, scambiare o difendere e4. L’alfiere c8 può spesso uscire prima di e6. Nessuna struttura è senza costi: il pedone c6 toglie una casa al cavallo b8 e occorre organizzare lo sviluppo.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "c7c6"
+        ],
+        [
+          "d2d4"
+        ],
+        [
+          "d7d5"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 c6 d4 d5. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+      "moves": [
+        [
+          "d7d5"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Sfrutta il sostegno di c6 e gioca d7–d5.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Qual è lo scopo immediato di 1...c6?",
+    "choices": [
+      "Sostenere la spinta d5",
+      "Preparare il matto sulla prima traversa",
+      "Cambiare il movimento dell’alfiere"
+    ],
+    "answer": 0,
+    "summary": "La solidità nasce da un centro sostenuto e da uno sviluppo coerente, non dalla sola scelta del nome dell’apertura."
+  },
+  {
+    "id": "qgd",
+    "title": "Sostenere il centro nero",
+    "subtitle": "Il gambetto di donna rifiutato",
+    "unit": 6,
+    "concepts": [
+      "e6 sostiene d5 contro c4.",
+      "L’alfiere c8 richiede un piano di sviluppo.",
+      "Le rotture c5 ed e5 vanno preparate."
+    ],
+    "text": "Dopo 1.d4 d5 2.c4 e6, il Nero rifiuta il pedone offerto e sostiene il centro. La struttura è solida, ma l’alfiere c8 può restare chiuso dietro e6. Sviluppa cavalli e alfiere f8, proteggi il re e cerca il momento giusto per contestare il centro con c5 o, se possibile, e5.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "d2d4"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "c2c4"
+        ],
+        [
+          "e7e6"
+        ],
+        [
+          "b1c3"
+        ],
+        [
+          "g8f6"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: d4 d5 c4 e6 Nc3 Nf6. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2",
+      "moves": [
+        [
+          "e7e6"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Sostieni d5 con e7–e6.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quale problema deve spesso risolvere il Nero in questa struttura?",
+    "choices": [
+      "Lo sviluppo dell’alfiere c8",
+      "La mancanza del re",
+      "L’impossibilità di muovere i cavalli"
+    ],
+    "answer": 0,
+    "summary": "Una struttura solida ha bisogno di pezzi attivi: individua quale pezzo è limitato dai tuoi stessi pedoni."
+  },
+  {
+    "id": "white-gambit",
+    "title": "Offrire per guadagnare tempi",
+    "subtitle": "Un gambetto con il Bianco",
+    "unit": 7,
+    "concepts": [
+      "Un gambetto offre materiale per attività o controllo.",
+      "La compensazione va dimostrata con mosse concrete.",
+      "Puoi rifiutare un sacrificio se prenderlo è rischioso."
+    ],
+    "text": "Nel gambetto di re, dopo 1.e4 e5 2.f4, il Bianco offre il pedone f per aprire linee e contestare e5. Dopo exf4 è sotto di un pedone e deve giustificarlo con sviluppo e iniziativa, mentre il re può essere più esposto. Non confondere attacco con vittoria garantita: confronta tempi, linee e sicurezza di entrambi i re.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e5"
+        ],
+        [
+          "f2f4"
+        ],
+        [
+          "e5f4"
+        ],
+        [
+          "g1f3"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 e5 f4 exf4 Nf3. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "moves": [
+        [
+          "f2f4"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Prova la spinta f2–f4 che offre il pedone nel gambetto di re.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa deve ottenere chi offre un pedone?",
+    "choices": [
+      "Una compensazione concreta, non solo speranza",
+      "Sempre un matto immediato",
+      "Il diritto di ignorare gli scacchi"
+    ],
+    "answer": 0,
+    "summary": "Prima di sacrificare valuta che cosa ricevi: tempi, linee, controllo o una sequenza calcolata."
+  },
+  {
+    "id": "black-gambit",
+    "title": "L’iniziativa con il Nero",
+    "subtitle": "Il controgioco di un gambetto",
+    "unit": 7,
+    "concepts": [
+      "Anche il Nero può offrire un pedone per attività.",
+      "Lo sviluppo rapido conta solo se crea minacce reali.",
+      "Materiale e iniziativa vanno rivalutati dopo ogni risposta."
+    ],
+    "text": "Un esempio è il gambetto islandese dopo e4 d5 exd5 Cf6 c4 e6. Il Nero offre un altro pedone per aprire le diagonali e svilupparsi. Il Bianco può scegliere se accettare o consolidare: non c’è un obbligo di prendere ogni offerta. Studia questi esempi per capire l’iniziativa, non come trappole infallibili.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "e4d5"
+        ],
+        [
+          "g8f6"
+        ],
+        [
+          "c2c4"
+        ],
+        [
+          "e7e6"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 d5 exd5 Nf6 c4 e6. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkb1r/ppp1pppp/5n2/3P4/2P5/8/PP1P1PPP/RNBQKBNR b KQkq - 0 3",
+      "moves": [
+        [
+          "e7e6"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Con il Nero gioca e7–e6 per offrire materiale e aprire linee di sviluppo.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Accettare un gambetto è sempre obbligatorio?",
+    "choices": [
+      "No, puoi scegliere una continuazione solida",
+      "Sì, una cattura è sempre forzata",
+      "Solo se giochi il Bianco"
+    ],
+    "answer": 0,
+    "summary": "Un’offerta ha senso solo se le linee aperte e l’attività compensano il materiale dato."
+  },
+  {
+    "id": "pawn-race",
+    "title": "Contare la corsa",
+    "subtitle": "Finali di re e pedoni",
+    "unit": 8,
+    "concepts": [
+      "Conta quante mosse servono al pedone per promuovere.",
+      "Considera il turno, il doppio passo e le case controllate.",
+      "Il re può cambiare percorso per sostenere o fermare un pedone."
+    ],
+    "text": "Nei finali di pedoni un solo tempo può cambiare il risultato. La regola del quadrato aiuta a capire se un re può raggiungere un pedone libero, ma verifica ostacoli, mosse di pedone doppie e scacchi dopo la promozione. Nei casi concreti calcola fino in fondo anziché affidarti solo al disegno del quadrato.",
+    "demo": {
+      "fen": "7k/8/8/8/P7/8/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "a4a5"
+        ]
+      ],
+      "title": "Inizia a contare",
+      "text": "Dopo a5 mancano tre passi alla promozione del pedone a.",
+      "hint": "Conta a6, a7 e a8.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/8/P7/8/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "a4a5"
+        ]
+      ],
+      "title": "Fai avanzare il pedone",
+      "text": "Muovi a4–a5 e conta i passi ancora necessari.",
+      "hint": "Il re nero è lontano dal pedone.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa va contato oltre alla distanza del pedone dalla promozione?",
+    "choices": [
+      "Il turno e le possibilità del re avversario",
+      "Solo il numero dei pezzi catturati",
+      "Solo il colore delle case"
+    ],
+    "answer": 0,
+    "summary": "Conta i tempi di entrambe le parti e controlla la posizione finale, non solo chi arriva vicino alla promozione."
+  },
+  {
+    "id": "knight-endgame",
+    "title": "Il cavallo nel finale",
+    "subtitle": "Bloccare e cambiare bersaglio",
+    "unit": 8,
+    "concepts": [
+      "Il cavallo può bloccare un pedone dalla casa davanti a lui.",
+      "Le sue mosse cambiano sempre colore di casa.",
+      "Il re deve spesso aiutarlo sui due lati della scacchiera."
+    ],
+    "text": "Nei finali il cavallo può attaccare pedoni e bloccarne uno, ma raggiungere un bersaglio lontano richiede tempi. Con pedoni su entrambi i lati, l’alfiere può trasferire pressione più rapidamente; non è una regola assoluta. Cerca case da cui il cavallo compie più lavori e coordinalo con il re.",
+    "demo": {
+      "fen": "7k/8/3p4/8/8/5N2/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "f3d4"
+        ]
+      ],
+      "title": "Una casa centrale",
+      "text": "Cd4 migliora il cavallo e avvicina i suoi attacchi al pedone d6.",
+      "hint": "Il cavallo si sposta a L.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/3p4/8/8/5N2/8/4K3 w - - 0 1",
+      "moves": [
+        [
+          "f3d4"
+        ]
+      ],
+      "title": "Centralizza il cavallo",
+      "text": "Porta il cavallo f3 in d4.",
+      "hint": "Due case a sinistra, una in alto.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Perché un cavallo può faticare contro bersagli molto distanti?",
+    "choices": [
+      "Ha bisogno di più tempi per trasferirsi",
+      "Non può mai catturare pedoni",
+      "Non può muovere nel finale"
+    ],
+    "answer": 0,
+    "summary": "Scegli case che migliorino più compiti insieme e conta i tempi necessari ai trasferimenti."
+  },
+  {
+    "id": "minor-endgame",
+    "title": "Alfiere o cavallo?",
+    "subtitle": "Confrontare i pezzi leggeri",
+    "unit": 8,
+    "concepts": [
+      "Un alfiere agisce su un solo colore.",
+      "Un cavallo può raggiungere case di entrambi i colori.",
+      "Struttura dei pedoni e distanza dei bersagli cambiano il confronto."
+    ],
+    "text": "Un alfiere lavora bene su diagonali libere, soprattutto se i bersagli sono su entrambi i lati. Un cavallo può sfruttare case protette nelle strutture bloccate e attaccare pedoni di entrambi i colori. Non scambiare automaticamente un pezzo per l’altro: guarda le case di ingresso, i pedoni vulnerabili e il re.",
+    "demo": {
+      "fen": "7k/6p1/8/8/8/8/P7/2B1K3 w - - 0 1",
+      "moves": [
+        [
+          "c1f4"
+        ]
+      ],
+      "title": "La diagonale si apre",
+      "text": "Af4 attiva l’alfiere verso entrambe le ali.",
+      "hint": "Gli alfieri si spostano in diagonale.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/6p1/8/8/8/8/P7/2B1K3 w - - 0 1",
+      "moves": [
+        [
+          "c1f4"
+        ]
+      ],
+      "title": "Attiva il pezzo leggero",
+      "text": "Muovi l’alfiere c1 in f4 sulla diagonale libera.",
+      "hint": "Segui d2 ed e3 fino a f4.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quale elemento aiuta a confrontare alfiere e cavallo?",
+    "choices": [
+      "La struttura dei pedoni e le case disponibili",
+      "Solo il colore dei pezzi",
+      "Il nome dell’apertura giocata"
+    ],
+    "answer": 0,
+    "summary": "Il pezzo migliore è quello che può svolgere compiti utili nella struttura che hai davanti."
+  },
+  {
+    "id": "bishop-endgame",
+    "title": "Pedoni sul colore giusto",
+    "subtitle": "Finali di alfieri",
+    "unit": 8,
+    "concepts": [
+      "Un alfiere può attaccare solo pedoni sul suo colore.",
+      "Alfieri di colore opposto possono favorire la difesa ma non garantiscono patta.",
+      "Il re può raggiungere case che l’alfiere non controlla."
+    ],
+    "text": "Nei finali di alfieri valuta quali pedoni sono attaccabili e quali limitano il tuo pezzo. Pedoni sullo stesso colore dell’alfiere possono essere difesi, ma possono anche ostacolarne l’attività. Con alfieri di colore opposto è spesso più facile costruire un blocco, mentre con altri pezzi in gioco possono nascere attacchi forti. La posizione concreta decide.",
+    "demo": {
+      "fen": "7k/8/8/8/8/4p3/8/2B1K3 w - - 0 1",
+      "moves": [
+        [
+          "c1e3"
+        ]
+      ],
+      "title": "Un bersaglio sulla diagonale",
+      "text": "Axe3 cattura il pedone sulla diagonale c1–e3.",
+      "hint": "La casa e3 ha lo stesso colore di c1.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/8/8/4p3/8/2B1K3 w - - 0 1",
+      "moves": [
+        [
+          "c1e3"
+        ]
+      ],
+      "title": "Riconosci il colore del bersaglio",
+      "text": "Cattura il pedone e3 con l’alfiere c1.",
+      "hint": "Passa lungo d2 fino a e3.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Gli alfieri di colore opposto garantiscono sempre una patta?",
+    "choices": [
+      "No, contano pedoni, re e altri pezzi",
+      "Sì, in qualsiasi posizione",
+      "Solo se il Bianco ha più tempo"
+    ],
+    "answer": 0,
+    "summary": "Valuta colori delle case, blocchi e attività del re prima di concludere che un finale sia vinto o patto."
+  },
+  {
+    "id": "rook-endgame",
+    "title": "La torre dietro al pedone",
+    "subtitle": "Attività nei finali di torre",
+    "unit": 8,
+    "concepts": [
+      "Una torre dietro un pedone passato spesso ne sostiene l’avanzata.",
+      "La torre difensiva cerca attività e scacchi.",
+      "Il re esposto può limitare un piano altrimenti valido."
+    ],
+    "text": "Nei finali di torre l’attività può valere più di un pedone. Mettere la torre dietro un pedone passato, proprio o avversario, spesso aumenta la sua efficacia: la distanza cresce mentre il pedone avanza. Non applicare il principio in automatico: scacchi, minacce di matto e promozioni immediate hanno priorità.",
+    "demo": {
+      "fen": "7k/8/8/P7/8/8/8/1R2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1a1"
+        ]
+      ],
+      "title": "Sostieni da dietro",
+      "text": "Ta1 mette la torre dietro al pedone a5.",
+      "hint": "Allinea la torre con il pedone.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/P7/8/8/8/1R2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1a1"
+        ]
+      ],
+      "title": "Prepara l’avanzata",
+      "text": "Porta la torre b1 in a1 dietro al pedone passato.",
+      "hint": "La colonna a non ha ostacoli tra torre e pedone.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "La regola della torre dietro al pedone vale senza eccezioni?",
+    "choices": [
+      "No, prima vanno controllate le minacce concrete",
+      "Sì, anche se perdi il re",
+      "Solo per i pedoni neri"
+    ],
+    "answer": 0,
+    "summary": "Cerca attività, distanza utile e sostegno al pedone, verificando sempre gli scacchi disponibili."
+  },
+  {
+    "id": "queen-endgame",
+    "title": "Scacchi a distanza",
+    "subtitle": "Finali di donna",
+    "unit": 8,
+    "concepts": [
+      "La donna può dare molti scacchi se il re è esposto.",
+      "Un pedone in più non elimina il rischio di scacco perpetuo.",
+      "Uno scambio di donne può cambiare il risultato del finale di pedoni."
+    ],
+    "text": "Nei finali di donna la sicurezza del re è cruciale: una sequenza di scacchi può impedire la conversione di un vantaggio. Cerca riparo, sostegno al pedone passato e scacchi utili, senza lasciare la donna in presa. Prima di proporre uno scambio calcola il finale di pedoni risultante, inclusi turno e opposizione.",
+    "demo": {
+      "fen": "7k/8/8/8/8/8/P7/3QK3 w - - 0 1",
+      "moves": [
+        [
+          "d1d4"
+        ]
+      ],
+      "title": "Attività centrale",
+      "text": "Dd4 porta la donna su linee lunghe e dà scacco al re h8.",
+      "hint": "La diagonale d4–h8 è libera.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/8/8/8/P7/3QK3 w - - 0 1",
+      "moves": [
+        [
+          "d1d4"
+        ]
+      ],
+      "title": "Uno scacco da lontano",
+      "text": "Gioca Dd4+ dalla casa d1.",
+      "hint": "La donna usa colonne e diagonali.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Prima di cambiare le donne, che cosa devi valutare?",
+    "choices": [
+      "Il finale di pedoni che rimane",
+      "Solo il valore uguale delle donne",
+      "Solo quante mosse avete giocato"
+    ],
+    "answer": 0,
+    "summary": "Dai al re un riparo e verifica l’esito degli scambi: nei finali di donna il vantaggio materiale può essere fragile."
+  },
+  {
+    "id": "forcing-moves",
+    "title": "Una ricerca ordinata",
+    "subtitle": "Scacchi, catture e minacce",
+    "unit": 9,
+    "concepts": [
+      "Cerca prima le mosse che limitano le risposte avversarie.",
+      "Controlla anche scacchi, catture e minacce dell’avversario.",
+      "Una mossa forzante è una candidata, non automaticamente la migliore."
+    ],
+    "text": "Quando la posizione è tattica, elenca scacchi, catture e minacce concrete per entrambi. Parti dalle mosse più forzanti e verifica le risposte migliori, non solo quelle comode. Una cattura può perdere per matto e uno scacco può regalare un pezzo: l’ordine di ricerca serve a organizzare il calcolo, non a sostituirlo.",
+    "demo": {
+      "fen": "6k1/5ppp/8/8/8/8/8/4R1K1 w - - 0 1",
+      "moves": [
+        [
+          "e1e8"
+        ]
+      ],
+      "title": "Inizia dagli scacchi",
+      "text": "Te8# risolve subito la posizione.",
+      "hint": "Il re nero non ha case di fuga.",
+      "comments": null,
+      "mate": true
+    },
+    "practice": {
+      "fen": "6k1/5ppp/8/8/8/8/8/4R1K1 w - - 0 1",
+      "moves": [
+        [
+          "e1e8"
+        ]
+      ],
+      "title": "Trova la candidata forzante",
+      "text": "Cerca il matto con la torre e1.",
+      "hint": "La torre può raggiungere e8.",
+      "comments": null,
+      "mate": true
+    },
+    "question": "Dopo aver trovato uno scacco, che cosa fai?",
+    "choices": [
+      "Verifichi tutte le risposte legali rilevanti",
+      "Lo giochi sempre senza controllare",
+      "Ignori le catture avversarie"
+    ],
+    "answer": 0,
+    "summary": "Organizza la ricerca e poi controlla: il valore di una candidata dipende dalle risposte dell’avversario."
+  },
+  {
+    "id": "calculate-line",
+    "title": "Tre mosse da verificare",
+    "subtitle": "Calcolo e difesa del matto rapido",
+    "unit": 9,
+    "concepts": [
+      "Una variante si valuta anche dalle difese migliori.",
+      "f7 è un bersaglio frequente all’inizio.",
+      "Una linea dimostrativa non è una vittoria forzata contro ogni risposta."
+    ],
+    "text": "Dopo e4 e5, Ac4 Cc6 Dh5 Cf6 Dxf7# mostra un matto in tre mosse del Bianco contro quelle specifiche risposte. Il Nero può difendersi diversamente: dopo Dh5, g6 attacca la donna e protegge f7 dalla diagonale, e vanno calcolate le continuazioni. Non imparare questa sequenza come promessa di vittoria. Allenati a visualizzare ogni posizione e a trovare dove la difesa avrebbe potuto cambiare.",
+    "demo": {
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "moves": [
+        [
+          "f1c4"
+        ],
+        [
+          "b8c6"
+        ],
+        [
+          "d1h5"
+        ],
+        [
+          "g8f6"
+        ],
+        [
+          "h5f7"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: Bc4 Nc6 Qh5 Nf6 Qxf7#. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": true
+    },
+    "practice": {
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4",
+      "moves": [
+        [
+          "h5f7"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Concludi la linea mostrata catturando in f7 con la donna.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": true
+    },
+    "question": "La linea dimostrata vince contro qualsiasi difesa del Nero?",
+    "choices": [
+      "No, il Nero ha alternative da calcolare",
+      "Sì, basta ricordarla",
+      "Solo se muove il Bianco due volte"
+    ],
+    "answer": 0,
+    "summary": "Calcolare significa cercare anche il punto in cui l’avversario può cambiare strada, non solo ricordare la conclusione."
+  },
+  {
+    "id": "winning-material",
+    "title": "Calcolare uno scambio",
+    "subtitle": "Guadagnare senza perdere di più",
+    "unit": 9,
+    "concepts": [
+      "Conta materiale prima e dopo una sequenza.",
+      "Una ripresa può essere obbligata o una scelta.",
+      "La sicurezza del re viene prima del saldo materiale."
+    ],
+    "text": "Quando una cattura sembra conveniente, non fermarti alla prima mossa. Cerca riprese, attacchi intermedi e scacchi. Confronta il valore dei pezzi scambiati e la posizione finale: guadagnare una torre non aiuta se la tua donna resta in presa o il tuo re subisce matto.",
+    "demo": {
+      "fen": "7k/8/8/8/8/8/1r6/1Q2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1b2"
+        ]
+      ],
+      "title": "Una cattura da verificare",
+      "text": "Dxb2 prende una torre senza una ripresa immediata nella posizione mostrata.",
+      "hint": "Controlla anche la sicurezza del re e1.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/8/8/8/1r6/1Q2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1b2"
+        ]
+      ],
+      "title": "Completa il conto",
+      "text": "Cattura la torre b2 con la donna b1.",
+      "hint": "La colonna b è libera tra i due pezzi.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quando termina la valutazione di una cattura?",
+    "choices": [
+      "Dopo aver verificato le risposte e la posizione risultante",
+      "Appena tocchi il pezzo",
+      "Appena vedi un pezzo più costoso"
+    ],
+    "answer": 0,
+    "summary": "Confronta il risultato dell’intera sequenza, non solo la prima cattura."
+  },
+  {
+    "id": "remove-defender",
+    "title": "Togliere una difesa",
+    "subtitle": "Eliminare il difensore",
+    "unit": 9,
+    "concepts": [
+      "Un bersaglio può essere protetto da un solo pezzo.",
+      "Catturare o deviare quel difensore cambia la posizione.",
+      "Il difensore potrebbe avere una risposta intermedia."
+    ],
+    "text": "La donna d5 è difesa dal cavallo f6. Axf6 elimina quel difensore: se il Nero risponde gxf6, Txd5 cattura la donna rimasta indifesa. Il Nero può scegliere risposte diverse, quindi questa è una linea illustrativa e non una sequenza forzata contro ogni difesa. Cerca sempre anche gli scacchi e le mosse intermedie.",
+    "demo": {
+      "fen": "7k/6p1/5n2/3q4/8/2B5/8/3RK3 w - - 0 1",
+      "moves": [
+        [
+          "c3f6"
+        ],
+        [
+          "g7f6"
+        ],
+        [
+          "d1d5"
+        ]
+      ],
+      "title": "Rimuovi il cavallo",
+      "text": "Segui Axf6, la risposta illustrativa gxf6 e Txd5.",
+      "hint": "Il cavallo f6 è l’unico difensore della donna d5.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/6p1/5n2/3q4/8/2B5/8/3RK3 w - - 0 1",
+      "moves": [
+        [
+          "c3f6"
+        ]
+      ],
+      "title": "Elimina il difensore",
+      "text": "Cattura il cavallo f6 con l’alfiere c3 per togliere la difesa della donna d5.",
+      "hint": "La diagonale c3–d4–e5–f6 è libera.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quale pezzo difende inizialmente la donna d5?",
+    "choices": [
+      "Il cavallo f6",
+      "Il re h8",
+      "Il pedone g7"
+    ],
+    "answer": 0,
+    "summary": "Rimuovere una difesa può rendere possibile una tattica; la verifica deve includere ogni risposta forzante."
+  },
+  {
+    "id": "zwischenzug",
+    "title": "Prima una mossa intermedia",
+    "subtitle": "Non riprendere in automatico",
+    "unit": 9,
+    "concepts": [
+      "Una mossa intermedia precede una ripresa attesa.",
+      "Uno scacco può costringere l’avversario a rispondere.",
+      "Controlla che il pezzo da riprendere resti disponibile."
+    ],
+    "text": "Dopo una cattura avversaria, la ripresa non è sempre la prima scelta. Una mossa intermedia può dare scacco o creare una minaccia più forte. Cerca questo tipo di risorsa sia per te sia per l’avversario. Non basta che la mossa sia sorprendente: deve migliorare il risultato della sequenza.",
+    "demo": {
+      "fen": "6k1/5ppp/8/8/8/8/Pq6/1Q2R1K1 w - - 0 1",
+      "moves": [
+        [
+          "e1e8"
+        ]
+      ],
+      "title": "Uno scacco prima della ripresa",
+      "text": "La donna nera è in b2, ma Te8# è più forte di una cattura di donna.",
+      "hint": "Il matto ha priorità sul materiale.",
+      "comments": null,
+      "mate": true
+    },
+    "practice": {
+      "fen": "6k1/5ppp/8/8/8/8/Pq6/1Q2R1K1 w - - 0 1",
+      "moves": [
+        [
+          "e1e8"
+        ]
+      ],
+      "title": "Non catturare in automatico",
+      "text": "Trova la conclusione immediata con la torre invece di Dxb2.",
+      "hint": "Guarda la traversa di fondo del Nero.",
+      "comments": null,
+      "mate": true
+    },
+    "question": "Perché cerchi una mossa intermedia?",
+    "choices": [
+      "Per ottenere qualcosa di più forte prima della ripresa",
+      "Per fare due mosse di fila",
+      "Per evitare sempre qualsiasi scambio"
+    ],
+    "answer": 0,
+    "summary": "Prima di una ripresa abituale, dedica un momento a scacchi e minacce immediate."
+  },
+  {
+    "id": "sacrifice",
+    "title": "Attirare e deviare",
+    "subtitle": "Sacrifici con uno scopo",
+    "unit": 9,
+    "concepts": [
+      "Deviare significa allontanare un difensore dal suo compito.",
+      "Attirare significa portare un pezzo su una casa utile alla combinazione.",
+      "Un sacrificio richiede calcolo o compensazione posizionale verificabile."
+    ],
+    "text": "Deviare un difensore e attirare il re sono due modi di cambiare la geometria della posizione. Nell’esempio Txg8+ offre una torre per un alfiere: se il re accetta con Rxg8, De8# conclude. Non assumere che ogni sacrificio sia forzato: verifica anche le fughe e il rifiuto dell’offerta. Qui la linea mostrata allena l’attrazione del re su g8 e la coordinazione di donna e re.",
+    "demo": {
+      "fen": "6bk/6R1/6K1/8/8/8/8/4Q3 w - - 0 1",
+      "moves": [
+        [
+          "g7g8"
+        ],
+        [
+          "h8g8"
+        ],
+        [
+          "e1e8"
+        ]
+      ],
+      "title": "Un compito che scompare",
+      "text": "Guarda Txg8+, la risposta Rxg8 e De8#. Il re viene attirato in g8.",
+      "hint": "Dopo l’accettazione la donna entra in e8.",
+      "comments": null,
+      "mate": true
+    },
+    "practice": {
+      "fen": "6bk/6R1/6K1/8/8/8/8/4Q3 w - - 0 1",
+      "moves": [
+        [
+          "g7g8"
+        ]
+      ],
+      "title": "Individua il difensore chiave",
+      "text": "Offri la torre catturando l’alfiere g8 con Txg8+. La dimostrazione mostra il seguito dopo l’accettazione.",
+      "hint": "Il re bianco g6 controlla g7 e h7.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Qual è l’idea di Txg8+ nella linea illustrata?",
+    "choices": [
+      "Attirare il re in g8 e poi dare De8#",
+      "Promuovere la torre",
+      "Arroccare il re bianco"
+    ],
+    "answer": 0,
+    "summary": "Dai a ogni sacrificio uno scopo e una verifica: l’iniziativa deve sopravvivere alle difese migliori."
+  },
+  {
+    "id": "pawn-structure",
+    "title": "I pedoni disegnano il piano",
+    "subtitle": "Catene, isolati e doppiati",
+    "unit": 10,
+    "concepts": [
+      "Un pedone isolato non ha pedoni amici sulle colonne adiacenti.",
+      "Pedoni doppiati stanno sulla stessa colonna.",
+      "Una debolezza strutturale può essere compensata da attività."
+    ],
+    "text": "I pedoni cambiano la forma della partita perché non tornano indietro. Un isolato può richiedere difesa ma dare spazio ai pezzi; pedoni doppiati possono essere bersagli o aprire una colonna utile. Nelle catene osserva base e punta, e cerca le spinte che cambiano la struttura. Nessuna etichetta sostituisce la valutazione dell’attività.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "d2d4"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "c2c4"
+        ],
+        [
+          "e7e6"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: d4 d5 c4 e6. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+      "moves": [
+        [
+          "c2c4"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Attacca la catena centrale avversaria con c2–c4.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Un pedone isolato rende sempre persa una posizione?",
+    "choices": [
+      "No, l’attività può compensare la debolezza",
+      "Sì, senza eccezioni",
+      "Solo se è bianco"
+    ],
+    "answer": 0,
+    "summary": "Descrivi la struttura, poi chiediti quali pezzi migliora e quali bersagli crea."
+  },
+  {
+    "id": "weaknesses",
+    "title": "Un bersaglio da fissare",
+    "subtitle": "Case deboli e pedoni arretrati",
+    "unit": 10,
+    "concepts": [
+      "Una casa che i pedoni non possono più controllare può diventare un punto d’appoggio.",
+      "Un bersaglio fisso può richiedere difesa continua.",
+      "Attaccare una debolezza serve anche ad attivare i pezzi."
+    ],
+    "text": "Una debolezza è utile da attaccare solo se puoi raggiungerla. Un pedone arretrato su una colonna aperta può diventare un bersaglio; una casa non più difendibile dai pedoni può ospitare un cavallo. Prima di spingere un pedone pensa alle case che lasci: non tutte le spinte utili oggi sono prive di costi domani.",
+    "demo": {
+      "fen": "7k/6p1/8/8/8/8/8/1N2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1c3"
+        ]
+      ],
+      "title": "Il cavallo cerca case utili",
+      "text": "Cc3 attiva il cavallo verso il centro.",
+      "hint": "Da una casa centrale puoi raggiungere più bersagli.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/6p1/8/8/8/8/8/1N2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1c3"
+        ]
+      ],
+      "title": "Prepara un punto d’appoggio",
+      "text": "Muovi il cavallo b1 in c3.",
+      "hint": "Non dichiarare una casa debole senza controllare i pedoni.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Quando una debolezza avversaria diventa un obiettivo pratico?",
+    "choices": [
+      "Quando puoi attaccarla o usarla con i tuoi pezzi",
+      "Appena la chiami debole",
+      "Solo se è sulla colonna h"
+    ],
+    "answer": 0,
+    "summary": "Collega ogni debolezza a una via concreta d’accesso per i tuoi pezzi."
+  },
+  {
+    "id": "space",
+    "title": "Spazio da usare",
+    "subtitle": "Mobilità senza sovraestendersi",
+    "unit": 10,
+    "concepts": [
+      "Lo spazio può dare più case ai pezzi.",
+      "Spingere troppo i pedoni può lasciare bersagli.",
+      "Chi ha meno spazio cerca scambi o rotture liberatrici."
+    ],
+    "text": "Una catena avanzata può limitare i pezzi avversari e facilitare le tue manovre. Devi però poter difendere le case e i pedoni avanzati. Chi è stretto cerca spesso uno scambio utile o una spinta che apra linee: calcola queste rotture prima di avviare un attacco lento.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e6"
+        ],
+        [
+          "d2d4"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "e4e5"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 e6 d4 d5 e5. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3",
+      "moves": [
+        [
+          "e4e5"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Avanza e4–e5 guadagnando spazio nella struttura mostrata.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Perché guadagnare spazio non basta da solo?",
+    "choices": [
+      "Devi sostenere i pedoni e usare le case ottenute",
+      "Perché i pedoni possono sempre tornare indietro",
+      "Perché lo spazio è vietato nel finale"
+    ],
+    "answer": 0,
+    "summary": "Usa lo spazio per migliorare i pezzi e controlla le spinte con cui l’avversario può liberarsi."
+  },
+  {
+    "id": "open-closed",
+    "title": "Quando si aprono le linee",
+    "subtitle": "Posizioni aperte e chiuse",
+    "unit": 10,
+    "concepts": [
+      "Un centro bloccato può favorire manovre più lente.",
+      "Linee aperte aumentano il valore dello sviluppo e dell’attività.",
+      "Una rottura di pedone può cambiare il carattere della posizione."
+    ],
+    "text": "In una posizione aperta alfieri e torri trovano linee lunghe e il re può essere vulnerabile. In una posizione chiusa i cavalli possono usare punti d’appoggio e i pedoni preparare rotture. Sono tendenze, non verdetti: conta chi può aprire il centro e con quale vantaggio di sviluppo.",
+    "demo": {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "moves": [
+        [
+          "e2e4"
+        ],
+        [
+          "e7e6"
+        ],
+        [
+          "d2d4"
+        ],
+        [
+          "d7d5"
+        ],
+        [
+          "e4e5"
+        ],
+        [
+          "c7c5"
+        ]
+      ],
+      "title": "Un piano sulla scacchiera",
+      "text": "Segui questa linea illustrativa: e4 e6 d4 d5 e5 c5. Le risposte mostrate sono esempi, non mosse obbligate.",
+      "hint": "Osserva quali linee si aprono a ogni mossa.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "rnbqkbnr/ppp2ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+      "moves": [
+        [
+          "c7c5"
+        ]
+      ],
+      "title": "Applica l’idea",
+      "text": "Con il Nero attacca la catena bianca giocando c7–c5.",
+      "hint": "Riprendi la casa di arrivo indicata nell’obiettivo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa può trasformare un centro chiuso?",
+    "choices": [
+      "Una rottura di pedone preparata",
+      "Il numero del turno",
+      "Solo uno scambio di re"
+    ],
+    "answer": 0,
+    "summary": "Prima di scegliere un piano laterale, valuta se e quando il centro può aprirsi."
+  },
+  {
+    "id": "minor-piece-plans",
+    "title": "Dare un compito ai pezzi leggeri",
+    "subtitle": "Alfieri attivi e cavalli stabili",
+    "unit": 10,
+    "concepts": [
+      "Un alfiere limitato dai propri pedoni cerca una diagonale o uno scambio.",
+      "Un cavallo stabile ha bisogno di sostegno e bersagli.",
+      "Cambiare la struttura può migliorare un pezzo senza muoverlo."
+    ],
+    "text": "Non giudicare un alfiere solo dal colore dei tuoi pedoni: chiediti se può uscire dalla catena e attaccare qualcosa. Un cavallo su una casa avanzata è utile se non viene cacciato facilmente e se influisce su bersagli concreti. A volte una spinta di pedone migliora il pezzo più di una lunga manovra.",
+    "demo": {
+      "fen": "7k/6p1/8/8/8/8/8/2B1K3 w - - 0 1",
+      "moves": [
+        [
+          "c1f4"
+        ]
+      ],
+      "title": "Una diagonale per l’alfiere",
+      "text": "Af4 porta il pezzo su linee centrali.",
+      "hint": "Il percorso c1–f4 è libero.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/6p1/8/8/8/8/8/2B1K3 w - - 0 1",
+      "moves": [
+        [
+          "c1f4"
+        ]
+      ],
+      "title": "Migliora il pezzo meno attivo",
+      "text": "Sviluppa l’alfiere c1 in f4.",
+      "hint": "Controlla d2 ed e3 lungo il percorso.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Un cavallo avanzato è sempre forte?",
+    "choices": [
+      "No, deve essere stabile e avere compiti utili",
+      "Sì, basta superare la quarta traversa",
+      "Solo se attacca il bordo"
+    ],
+    "answer": 0,
+    "summary": "Dai a ogni pezzo una casa, un sostegno e un bersaglio: attività significa fare qualcosa di utile."
+  },
+  {
+    "id": "rook-plans",
+    "title": "Invadere con le torri",
+    "subtitle": "Colonne e settima traversa",
+    "unit": 10,
+    "concepts": [
+      "Le colonne aperte sono vie d’ingresso, non un obiettivo fine a sé stesso.",
+      "La settima traversa può offrire bersagli e limitare il re.",
+      "Raddoppiare le torri richiede tempi e case sicure."
+    ],
+    "text": "Prima di occupare una colonna chiediti dove potrai entrare. Una torre sulla settima traversa può attaccare pedoni e tagliare il re, ma può anche essere intrappolata se non ha sostegno. Raddoppiare le torri aumenta la pressione solo se la linea porta a un ingresso concreto.",
+    "demo": {
+      "fen": "6k1/5ppp/8/8/8/8/PPP2PPP/3R2K1 w - - 0 1",
+      "moves": [
+        [
+          "d1d7"
+        ]
+      ],
+      "title": "Entra in settima",
+      "text": "Td7 usa la colonna d e attacca il pedone f7 lungo la traversa.",
+      "hint": "La colonna d è libera.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "6k1/5ppp/8/8/8/8/PPP2PPP/3R2K1 w - - 0 1",
+      "moves": [
+        [
+          "d1d7"
+        ]
+      ],
+      "title": "Trova la casa d’ingresso",
+      "text": "Porta la torre d1 in d7.",
+      "hint": "Controlla che nessun pezzo avversario possa catturarla subito.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Che cosa cerchi dopo aver occupato una colonna aperta?",
+    "choices": [
+      "Una casa d’ingresso utile e sicura",
+      "Solo di restare fermo per sempre",
+      "Una promozione della torre"
+    ],
+    "answer": 0,
+    "summary": "Colonna, ingresso e bersaglio devono far parte dello stesso piano."
+  },
+  {
+    "id": "queen-plans",
+    "title": "La donna coordina",
+    "subtitle": "Attività e sicurezza",
+    "unit": 10,
+    "concepts": [
+      "La donna può passare rapidamente da un lato all’altro.",
+      "Un’incursione senza sostegno può perdere tempi.",
+      "Re esposto e pezzi indifesi creano tattiche di donna."
+    ],
+    "text": "La donna unisce mobilità e valore elevato: una casa attiva può creare due minacce, ma può anche esporla agli attacchi dei pezzi meno costosi. Cerca linee che colleghino attacco e difesa, e verifica se un cambio di donne favorisce il finale. Non usare la donna per compiti che un pezzo meno prezioso svolge meglio.",
+    "demo": {
+      "fen": "7k/6p1/8/8/8/8/P7/3QK3 w - - 0 1",
+      "moves": [
+        [
+          "d1d4"
+        ]
+      ],
+      "title": "Una casa di coordinazione",
+      "text": "Dd4 attiva la donna sulla colonna e sulle diagonali centrali.",
+      "hint": "La colonna d è libera.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/6p1/8/8/8/8/P7/3QK3 w - - 0 1",
+      "moves": [
+        [
+          "d1d4"
+        ]
+      ],
+      "title": "Centralizza senza esporre",
+      "text": "Porta la donna d1 in d4.",
+      "hint": "Valuta prima le catture disponibili all’avversario.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Perché la donna può perdere tempi se esce troppo presto?",
+    "choices": [
+      "Pezzi meno costosi possono attaccarla mentre si sviluppano",
+      "Perché non può arretrare",
+      "Perché vale solo un punto"
+    ],
+    "answer": 0,
+    "summary": "Cerca una donna attiva ma sostenuta: ogni incursione deve avere un ritorno concreto."
+  },
+  {
+    "id": "trades-checklist",
+    "title": "Decidere prima di scambiare",
+    "subtitle": "Una routine per scegliere la mossa",
+    "unit": 10,
+    "concepts": [
+      "Uno scambio cambia attività, struttura e finali possibili.",
+      "Elenca prima le minacce avversarie.",
+      "Prima di giocare controlla la posizione dopo la tua candidata."
+    ],
+    "text": "Prima di uno scambio confronta i pezzi che restano, non solo quelli che spariscono. Con vantaggio materiale semplificare può aiutare, ma non se entri in un finale patto. Usa una routine: che cosa minaccia l’avversario? Quali scacchi, catture e minacce ho? Quale mio pezzo miglioro? Dopo la candidata, che risposta forzante ha l’altro? Se scambi, ricontrolla il piano nella nuova struttura.",
+    "demo": {
+      "fen": "7k/8/8/8/8/8/1r6/1Q2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1b2"
+        ]
+      ],
+      "title": "Una cattura verificata",
+      "text": "Dxb2 elimina una torre: controlla poi che cosa rimane sulla scacchiera.",
+      "hint": "Il re bianco resta al sicuro.",
+      "comments": null,
+      "mate": false
+    },
+    "practice": {
+      "fen": "7k/8/8/8/8/8/1r6/1Q2K3 w - - 0 1",
+      "moves": [
+        [
+          "b1b2"
+        ]
+      ],
+      "title": "Applica la routine",
+      "text": "Cattura la torre b2 con la donna, dopo aver controllato le risposte.",
+      "hint": "Confronta materiale e sicurezza prima e dopo.",
+      "comments": null,
+      "mate": false
+    },
+    "question": "Qual è una verifica utile immediatamente prima di muovere?",
+    "choices": [
+      "La migliore risposta forzante dell’avversario",
+      "Solo se la mossa sembra elegante",
+      "Solo il nome dell’apertura"
+    ],
+    "answer": 0,
+    "summary": "Minacce, candidate, risposte e posizione finale: una routine breve riduce gli errori evitabili."
+  }
+]

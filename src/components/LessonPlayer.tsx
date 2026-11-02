@@ -54,6 +54,9 @@ export function LessonPlayer({
     } else if (lessonReady(p, lesson)) {
       update(completeLesson(p, lesson));
       navigate({ page: "complete", id: lesson.id });
+    } else {
+      update(p);
+      navigate({ page: "path" });
     }
   }
   const hintCount = result?.hints ?? 0;
@@ -84,6 +87,17 @@ export function LessonPlayer({
           {index + 1}/{lesson.blocks.length}
         </span>
       </div>
+      <label className="lesson-jump">
+        Scegli un passaggio
+        <select aria-label="Scegli un passaggio" value={index} onChange={e => go(Number(e.target.value))}>
+          {lesson.blocks.map((item, i) => (
+            <option key={item.id} value={i}>
+              {i + 1}. {item.title}{progress.results[keyFor(lesson, item.id)]?.done ? " ✓" : ""}
+            </option>
+          ))}
+        </select>
+        <small>Esplora liberamente. Gli esercizi saltati restano da svolgere.</small>
+      </label>
       <div className="lesson-body" key={block.id}>
         <div className="eyebrow accent">
           {block.type === "guided_move"
@@ -228,12 +242,13 @@ export function LessonPlayer({
         </button>
         <button
           className="primary"
-          disabled={
-            !done && block.type !== "explanation" && block.type !== "summary"
-          }
           onClick={next}
         >
-          {index === lesson.blocks.length - 1 ? "Concludi" : "Continua"}{" "}
+          {index === lesson.blocks.length - 1
+            ? lesson.blocks.every(item => item.id === block.id || progress.results[keyFor(lesson, item.id)]?.done)
+              ? "Concludi"
+              : "Torna al percorso"
+            : "Continua"}{" "}
           <span>→</span>
         </button>
       </div>

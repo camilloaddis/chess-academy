@@ -1310,3 +1310,24 @@ p {
 .lesson-source p {
   padding: 10px 0 15px;
 }
+
+.lesson-jump {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 640px);
+  margin: 0 auto 24px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.lesson-jump select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #739685;
+  border-radius: 8px;
+  background: #f7f7f0;
+  color: #142e29;
+  font: inherit;
+}
+.lesson-jump small { line-height: 1.5; }

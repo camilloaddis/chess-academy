@@ -1,6 +1,6 @@
 # Chess Academy
 
-Una PWA mobile-first in italiano per imparare gli scacchi con piccole lezioni interattive. Quattro microlezioni: scacchiera, movimento dei pezzi, scacco, scacco matto e stallo.
+Una PWA mobile-first in italiano per imparare gli scacchi con piccole lezioni interattive. 60 microlezioni in undici unità: fondamenta, regole speciali, tattica, aperture e piani, finali. Tutte sono accessibili senza prerequisiti; anche i passaggi interni si possono esplorare liberamente. Gli esercizi saltati non vengono segnati come completati.
 
 Concetti rielaborati dall’introduzione e dal capitolo 1 di _How to Win at Chess_ di Levy Rozman, con riferimenti alle pagine PDF nel [curriculum](docs/curriculum.md). Gli esercizi sono originali; un diagramma di matto è ricostruito e verificato sulla pagina PDF 41. Il PDF originale non è distribuito: è stato rimosso dai branch e dalla loro cronologia.
 
@@ -45,7 +45,9 @@ Su una macchina Linux senza librerie browser, installare i prerequisiti supporta
 
 - [Architettura e limiti](docs/architecture.md)
 - [Curriculum provvisorio e provenienza delle posizioni](docs/curriculum.md)
-- `src/content/unit.ts`: contenuti strutturati della prima unità.
+- `src/content/unit.ts`: catalogo completo e quattro lezioni iniziali.
+- `src/content/course-data.json`: 56 nuove lezioni originali, con spiegazioni, sequenze, esercizi e domande.
+- `src/content/course.ts`: struttura delle nuove lezioni e raggruppamento nelle undici unità.
 - `source/`: directory riservata al materiale di studio locale. Il PDF originale non è tracciato né copiato in `dist/`.
 
 I progressi restano nel browser usato: cancellare i dati del sito li elimina. Non sono presenti sincronizzazione, esportazione, AI, Stockfish, funzionalità social o unità successive. Le durate delle lezioni sono stime. La verifica su dispositivi fisici e l'installazione dal menu nativo del browser richiedono una prova dedicata; l'emulazione mobile non sostituisce questi controlli.

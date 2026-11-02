@@ -147,3 +147,47 @@ describe("progressione", () => {
     expect(lessonReady(p, { ...l, version: 2 })).toBe(false);
   });
 });
+
+describe('catalogo esteso', () => {
+  it('mantiene le quattro lezioni originali e copre ogni unità senza duplicati', async () => {
+    const { courseUnits } = await import('../src/content/course');
+    expect(lessons).toHaveLength(60);
+    expect(lessons.slice(0, 4).map(l => [l.id, l.version])).toEqual([
+      ['board', 1], ['pieces', 1], ['check', 1], ['mate', 1],
+    ]);
+    const ids = courseUnits.flatMap(unit => unit.ids);
+    expect(new Set(ids).size).toBe(lessons.length);
+    expect(new Set(ids)).toEqual(new Set(lessons.map(l => l.id)));
+    for (const lesson of lessons) {
+      for (const block of lesson.blocks) {
+        if (block.type === 'multiple_choice') {
+          expect(block.answer).toBeGreaterThanOrEqual(0);
+          expect(block.answer).toBeLessThan(block.choices.length);
+        }
+      }
+    }
+  });
+  it('verifica i bersagli dichiarati negli esempi tattici e l’opposizione', () => {
+    function result(id: string) {
+      const lesson = lessons.find(l => l.id === id)!;
+      const block = lesson.blocks.find(isBoardBlock)!;
+      const game = new Chess(block.activity.fen);
+      for (const alternatives of block.activity.moves) {
+        const u = alternatives[0];
+        game.move({ from: u.slice(0, 2), to: u.slice(2, 4), promotion: u[4] });
+      }
+      return game;
+    }
+    const fork = result('fork');
+    expect(fork.isAttacked('d8', 'w')).toBe(true);
+    expect(fork.isAttacked('h8', 'w')).toBe(true);
+    const pin = result('pin');
+    expect(pin.moves({ square: 'f6' })).toEqual([]);
+    expect(result('skewer').isCheck()).toBe(true);
+    expect(result('discovered').isCheck()).toBe(true);
+    const opposition = result('opposition');
+    expect(opposition.get('e5')).toEqual({ type: 'k', color: 'w' });
+    expect(opposition.get('e7')).toEqual({ type: 'k', color: 'b' });
+    expect(opposition.turn()).toBe('b');
+  });
+});
