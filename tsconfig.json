@@ -12,5 +12,5 @@
     "allowImportingTsExtensions": true,
     "types": ["vite/client"]
   },
-  "include": ["src", "tests/unit.test.ts", "vite.config.ts"]
+  "include": ["src", "tests/reader.test.ts", "vite.config.ts"]
 }

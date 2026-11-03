@@ -7,26 +7,27 @@
     "dev": "node scripts/prepare-public.mjs && vite --host 0.0.0.0",
     "build": "node scripts/prepare-public.mjs && tsc -b && vite build && node scripts/check-dist.mjs",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "vitest run tests/unit.test.ts",
+    "test": "vitest run tests/reader.test.ts",
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-chessboard": "^5.12.1",
     "chess.js": "^1.4.0",
-    "idb": "^8.0.3"
+    "idb": "^8.0.3",
+    "pdfjs-dist": "^6.5.438",
+    "react": "^19.2.0",
+    "react-chessboard": "^5.12.1",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
-    "vite": "^7.2.0",
-    "@vitejs/plugin-react": "^5.1.0",
+    "@playwright/test": "^1.56.0",
+    "@tailwindcss/vite": "^4.1.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
     "tailwindcss": "^4.1.0",
-    "@tailwindcss/vite": "^4.1.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.0",
     "vite-plugin-pwa": "^1.2.0",
-    "vitest": "^4.0.0",
-    "@playwright/test": "^1.56.0"
+    "vitest": "^4.0.0"
   }
 }
