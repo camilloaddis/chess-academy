@@ -16,7 +16,7 @@ export default defineConfig({
       manifest: {
         name: "Chess Academy",
         short_name: "Chess Academy",
-        description: "Una mossa alla volta",
+        description: "Lettore personale di libri di scacchi",
         lang: "it",
         theme_color: "#142e29",
         background_color: "#f7f7f0",
@@ -41,7 +41,10 @@ export default defineConfig({
       },
       workbox: {
         clientsClaim: true,
-        globPatterns: ["**/*.{js,css,html,svg,png,woff2}"],
+        globPatterns: [
+          "**/*.{js,mjs,css,html,svg,png,woff2,bcmap,ttf,pfb,wasm}",
+        ],
+        maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
         navigateFallback: `${base}index.html`,
         navigateFallbackAllowlist: [/^\/chess-academy\//],
       },
